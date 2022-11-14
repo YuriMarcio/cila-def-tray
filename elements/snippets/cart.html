@@ -1,0 +1,39 @@
+
+    <button id="close" class="tw-absolute tw-right-3/4 t tw-top-0 tw-p-4 tw-bg-white tw-z-50"  @click="bag = ! bag"  @click.outside="bag = false">
+      <img class="" src="{{asset('./img/icon/close.svg')}}" alt="" >
+    </button>
+    <div id="sacola-produtos" class=" tw-h-126 tw-w-76 tw-pl-4 tw-bg tw-z-50 tw-pt-8 tw-overflow-auto ">
+      <h1 class="tw-mb-6 tw-text-2xl">MINHA SACOLA (2) </h1>
+        <div id="product" class="tw-flex tw-justify-between tw-mb-5">
+          <div id="product-image" class="tw-w-70">
+            <img src="{{asset('./img/produtos/clothing1.png')}}" alt="" class="">
+          </div>
+          <div id="info-product" class="tw-w-160 tw-py-2">
+            <h1 class="tw-font-normal tw-leading-9 tw-break-normal tw-mb-1 tw-text-2xl">CALCINHA HOT PANT CAVADA FLUITY</h1>
+            <p class="tw-mb-1 tw-text-2xl"><strong>R$198,00</strong></p>
+            <div id="product-amount" class="tw-flex">
+              <button id="les" class="tw-p-2 tw-border tw-border-black"><img src="{{asset('./img/icon/less.svg')}}" alt=""></button>
+              <div id="mount" class="tw-px-2 tw-py-1 tw-text-2xl tw-bg-zinc-200"><span>01</span></div>
+              <button id="more" class="tw-p-2 tw-border tw-border-black"><img src="{{asset('./img/icon/moreB.svg')}}" alt=""></button>
+            </div>
+          </div>
+          <button id="remove-product" class='tw-flex tw-justify-center tw-items-center'>
+            <img src="{{asset('./img/icon/trash.svg')}}" alt="" class="tw-h-9">
+          </button>
+        </div>
+      </div>
+      <div id="line" class=""></div>
+      <div id="next-cart" class="tw-p-4 tw-bg-white tw-w-76">
+        <div id="price" class="tw-flex tw-items-center tw-justify-between tw-mb-8">
+          <p class="tw-text-2xl">SUBTOTAL</p>
+          <span class="tw-text-2xl"><strong>R$198,00</strong></span>
+        </div>
+        <button class="tw-w-full tw-border tw-text-2xl tw-border-black tw-py-4 tw-mb-4">
+          <p>CONTINUAR COMPRANDO</p>
+        </button>
+        <button class="tw-w-full tw-border tw-text-2xl tw-border-black tw-bg-black tw-text-white  tw-py-4 ">
+          <p>FINALIZAR COMPRA</p>
+        </button>
+      </div>
+  </section>
+<!-- DROPDOW CARRINHO DE COMPRAS MOBILE -->

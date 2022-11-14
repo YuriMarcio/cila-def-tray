@@ -1,0 +1,62 @@
+{% set productsAll = Products({
+    'filter': 'featured',
+    'limit': 50,
+    'order': {'id': 'desc'}
+}) %}
+{% set list1 = [] %}
+{% for product in productsAll %}
+{% if '#!lista1!#' in product.additional_message %}
+{% set list1 = list1|merge([product]) %}
+{% endif %}
+{% endfor %}
+
+{% set list2 = [] %}
+{% for product in productsAll %}
+{% if '#!lista2!#' in product.additional_message %}
+{% set list2 = list2|merge([product]) %}
+{% endif %}
+{% endfor %}
+
+{% set list3 = [] %}
+{% for product in productsAll %}
+{% if '#!lista3!#' in product.additional_message %}
+{% set list3 = list3|merge([product]) %}
+{% endif %}
+{% endfor %}
+
+{% set list4 = [] %}
+{% for product in productsAll %}
+{% if '#!lista4!#' in product.additional_message %}
+{% set list4 = list4|merge([product]) %}
+{% endif %}
+{% endfor %}
+
+
+{% element 'snippets/banner-home' %}
+
+
+
+<div class="bg-secondary-theme py-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center mb-3 mb-md-0">
+                <a href="/nossa-historia" class="d-block position-relative">
+                    <img class="img-fluid" src="{{ banners.extra2.src }}">
+                    <!--<div class="position-absolute top-50 start-50 text-white text-start">
+                        <span class="fs-6 text d-block">Nossa</span>
+                        <span class="fs-4 text fw-bold">História</span>
+                    </div>-->
+                </a>
+            </div>
+            <div class="col-md-6 text-center">
+                <a href="/praticas-responsaveis" class="d-block position-relative">
+                    <img class="img-fluid" src="{{ banners.extra3.src }}">
+                    <!--<div class="position-absolute top-50 text-white text-start praticas-responsaveis">
+                        <span class="fs-6 text d-block">Práticas</span>
+                        <span class="fs-4 text fw-bold">Responsáveis</span>
+                    </div>-->
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

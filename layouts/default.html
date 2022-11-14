@@ -1,0 +1,91 @@
+{% spaceless %}
+<!doctype html>
+<html data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }}" data-theme-name="Tema Padrão" data-theme-version="11.0.1">
+<head>
+    <!-- tray charset -->
+    {{ html.charset() }}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- tray meta tags -->
+    {{ tray.meta }}
+
+    <!-- tray styles -->
+    {{ tray.styles }}
+
+    <!-- theme styles -->
+    <link rel="stylesheet" href="{{ asset('./css/output.css') }}" type="text/css">
+    <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}" type="text/css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}" type="text/css">
+    {% if settings.extension_id == '222' %}
+        <link rel="stylesheet" href="{{ asset('css/saude-e-beleza.css') }}" type="text/css">
+    {% endif %}
+    <link rel="stylesheet" href="{{ asset('css/custom.css', {dynamic: true}) }}" type="text/css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" />
+
+    <!-- ESCRIPTS -->
+    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+
+    <!-- tray analytics -->
+    {{ tray.analytics }}
+
+    <!-- google tag manager -->
+    {{ googleTagManager.header(pages.current, tagManagerData) }}
+</head>
+<body>
+    {{ googleTagManager.top(pages.current, tagManagerData) }}
+    <!--{% element 'snippets/messages' %} -->
+    {% element 'snippets/menu-mobile' %}
+
+    <div class="application">
+
+       
+        {% if pages.current == 'home' %}
+        {% element 'header_home' %}
+        {{ content_for_layout }}
+        {% else %}
+        {% element 'header' %}
+        
+        <div class="container-fluid">
+        {{ content_for_layout }}
+    </div>
+        {% endif %}
+
+        {% element 'footer' %}
+
+        {% if settings.hottags_position == 2 %}
+        <div class="tagcloud">
+            <h4>As palavras</h4>
+            <h3>{{ Translation('tags_mais_buscadas') }}</h3>
+            {% for tag in tags %}
+            <a href="{{ tag.url }}" style="font-size: {{ tag.font_size }}%">{{ tag.word }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}     
+    </div>
+
+
+    <!-- tray -->
+    {% element 'snippets/modal' %}
+    {{ googleTagManager.bottom(pages.current, tagManagerData) }}
+    {{ tray.scripts }}
+    {{
+    html.script({
+    '0' : tray.paths.js ~ 'dist/application.min.js?' ~ utils.assets_version,
+    '1' : tray.paths.js ~ 'init.js?' ~ utils.assets_version
+    })
+    }}
+    {% element 'snippets/pageview' %}
+    {{ store.chat }}
+
+    <!-- theme scripts-->
+    <script src="https://kit.fontawesome.com/d951250582.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/theme.min.js') }}"></script>
+    <script src="{{asset('js/index.js')}}"></script>
+</body>
+</html>
+{% endspaceless %}

@@ -1,0 +1,18 @@
+    <!-- menu triplo -->
+    <ul class="tw-flex tw-items-end ">
+      <li class="tw-p-5" @click="search = ! search">
+        <a href="#"><img src="{{asset('/img/icon/searchicon.svg')}}" alt="" class=" tw-h-9 md:tw-h-11"></a>
+      </li>
+      <li class="tw-p-5">
+        <a href="#">
+          <img src="{{asset('/img/icon/profileicon-menu.svg')}}" alt="" class="tw-h-9 md:tw-h-11">
+        </a>
+      </li>
+      <li class="tw-p-5 tw-relative">
+        <a href="#">
+          <img src="{{asset('/img/icon/bagicon.svg')}}" alt="" class="tw-h-9 md:tw-h-11" @click="bag = !open">
+          <div id="bol" class="tw-w-2 tw-h-2 tw-bg-emerald-300 tw-rounded-lg tw-absolute tw-bottom-12 tw-left-11 w-brightness-90"></div>
+        </a>
+      </li>
+    </ul>
+  <!--MENUM TRIPLO-->

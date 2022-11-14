@@ -1,0 +1,11 @@
+@config "../js/tailwind.config.js";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+  }
