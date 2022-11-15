@@ -24,9 +24,10 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css', {dynamic: true}) }}" type="text/css">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" as="style" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
     <!-- ESCRIPTS -->
-    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- tray analytics -->
     {{ tray.analytics }}
@@ -37,7 +38,7 @@
 <body>
     {{ googleTagManager.top(pages.current, tagManagerData) }}
     <!--{% element 'snippets/messages' %} -->
-    {% element 'snippets/menu-mobile' %}
+    
 
     <div class="application">
 

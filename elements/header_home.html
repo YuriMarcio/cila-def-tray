@@ -5,7 +5,7 @@
         </button>
         <div id="logo" class="tw-ml-4">
             <a href="{{ links.home }}">
-                <img src="{{asset('./img/logo/logo_cila.svg')}}" alt="" class="lg:tw-hidden tw-h-30">
+                <img src="{{asset('./img/logo/logo_cila.svg')}}" alt="" class="lg:tw-hidden tw-h-10">
             </a>
             <a href="{{ links.home }}">
                 <img src="{{asset('./img/logo/logoComplet.svg')}}" alt="" class=" tw-hidden lg:tw-block md:tw-min-w-85 ">
@@ -70,6 +70,7 @@
             </ul>
         </div> -->
         <!-- NAVIGATION DESKTOP -->
+
         <!--MENUM TRIPLO-->
         <div id="iconMenu" class="tw-absolute tw-right-0 lg:tw-relative lg:tw-right-0 " x-show="!search">
             {% element 'snippets/menu-triple' %}
@@ -80,5 +81,16 @@
             {% element 'snippets/cart'%}
         </section>
         <!-- DROPDOW CARRINHO DE COMPRAS MOBILE -->
+        <!-- SEARCH -->
+        <section id="search" class="tw-w-9/12  tw-absolute tw-left-56 tw-top-9 tw-bg-transparent tw-flex " x-show="search">
+            {% element 'snippets/search' %}
+        </section>
+        <!-- SEARCH --> 
+
+        
+        <!-- NAVIGATION MOBILE -->
+        <section id="mobile-dropdown-menu" class="tw-absolute tw-w-96 tw-top-0 tw-left-0  lg:tw-hidden" x-show="open" @click.outside="open = false"
+        x-transition:enter="tw-duration-300" x-transition:leave-end="-tw-duration-300"> 
+        <!-- NAVIGATION MOBILE -->
     </nav>
 </header>

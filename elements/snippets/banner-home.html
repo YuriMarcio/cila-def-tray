@@ -1,0 +1,22 @@
+<section id="banner" class="tw-w-full tw-h-screen tw-bg-cover tw-bg-center">
+    <div class="swiper BannerSwiper tw-h-full">
+      <div class="swiper-wrapper tw-h-full tw-h-full">
+        {% for slide in banners.home.slides %}
+            <div class="swiper-slide">
+            <a href="{{ slide.link }}"><img src="{{ slide.image }}" alt="{{ slide.label }}" class="tw-w-full tw-h-full tw-object-cover"></a>
+            </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next tw-invisible tw-hidden ">
+        <button id="arrow-right" class="tw-w-64 tw-h-64 tw-absolute tw-top-0 tw-right-4 tw-bg-black/30 tw-flex tw-justify-center tw-items-center lg:tw-visible">
+          <img class="tw-rotate-180" src="{{asset('./img/icon/arrowWhite.svg')}}" alt="">
+        </button>
+      </div>
+      <div class="swiper-button-prev tw-invisible">
+        <button id="arrow-left" class="tw-h-64 tw-w-64 tw-absolute tw-top-0 tw-left-0 tw-bg-black/30 tw-flex tw-items-center tw-justify-center lg:tw-visible">
+          <img src="{{asset('./img/icon/arrowWhite.svg')}}" alt="">
+        </button>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>

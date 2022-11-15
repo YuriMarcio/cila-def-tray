@@ -1,108 +1,46 @@
-<!-- colocar o hidden aqui
-  <form method="GET" class=" tw-w-76 tw-w-full tw-relative tw-flex tw-bg-white tw-z-50 tw-shadow-lg tw-p-4">
-        <input type="search" style="background-color:#EBEBEB ;"class="tw-p-2 tw-h-12 tw-w-full tw-text-sm tw-text-gray-900 tw-italic tw-caret-slate-400 tw-bg-gray-900 " placeholder="O QUE VOCÊ PROCURA?" >
-        <span class="tw-relative -tw-ml-11 tw-flex tw-items-center tw-pl-2  ">
+  <form method="GET" class=" tw-w-76 tw-h-32 tw-relative tw-flex tw-bg-white tw-z-50 tw-shadow-lg tw-p-4">
+        <input type="search" style="background-color:#EBEBEB ;"class="tw-p-2 tw-w-full tw-h-20 tw-text-2xl  tw-text-gray-900 tw-italic tw-caret-slate-400 tw-bg-gray-900 " placeholder="O QUE VOCÊ PROCURA?" >
+        <span class="tw-relative -tw-ml-11 tw-flex tw-items-center tw-bottom-2 tw-right-3 tw-pl-2  ">
           <button type="submit" class="tw-p-1 focus:tw-outline-none focus:tw-shadow-outline">
-            <a href="#"><img src="./img/icon/searblack.svg" alt="" class="tw-w-5 tw-h-5"></a>
+            <a href="#"><img src="{{asset('./img/icon/searblack.svg')}}" alt="" class="tw-h-8"></a>
           </button>
         </span>
     </form>
-    <button id="close" class="tw-absolute tw-left-2/4 tw-ml-28 tw-top-0 tw-p-4 tw-bg-white tw-z-50" @click="open = ! open">
-      <img src="./img/icon/close.svg" alt="" >
+    <button id="close" class="tw-relative tw-left-80 tw-bottom-32 tw-p-4 tw-bg-white tw-z-50" @click="open = ! open">
+      <img  src="{{asset('./img/icon/close.svg')}}" alt="" >
     </button>
-    <nav id="navgation" class=" tw-w-76 tw-bg-white lg:tw-init tw-snap-y ">
-        <ul class="tw-text-black tw-h-96 tw-text-base lg:tw-flex lg:tw-text-white lg:tw-justify-center lg:tw-items-center  tw-snap-y tw-snap-mandatory tw-overflow-y-auto ">
-          <li>
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4">
-              <p class="">NEW</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a> 
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>SUTIÃ</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li>
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>CALCIHA</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>BIQUINÍS</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>MAIÓS</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>RESORT</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>ECO</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>CLÁSSICOS</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>OUTLET</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>ACESSÓRIOS</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>MASCULINO</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
-          <li >
-            <a href="#" class="tw-flex tw-justify-between tw-py-3 tw-px-4 hover:tw-border-b">
-              <p>COLEÇÕES</p> 
-              <img src="./img/icon/arrow.svg" alt="">
-            </a>  
-          </li> 
+    <nav id="navgation" class=" tw-w-76 tw-bg-white lg:tw-init tw-snap-y tw-relative tw-bottom-16 ">
+        <ul class="tw-text-black tw-pr-7 tw-h-384 lg:tw-flex lg:tw-text-white lg:tw-justify-center lg:tw-items-center  tw-snap-y tw-snap-mandatory tw-overflow-y-auto ">
+          {% for categoria in categories %}
+              <li>
+                  <a href="{{ categoria.link }}" class="tw-flex tw-justify-between tw-py-3 tw-px-2">
+                      <p class="tw-py-3 tw-text-white tw-px-4 tw-text-2xl hover:tw-border-b-2 tw-text-black  ">
+                          {{ categoria.name }}
+                      </p>
+                      <img src="{{asset('./img/icon/arrow.svg')}}" alt="">
+                  </a> 
+              </li>
+          {%endfor%}  
         </ul>
     </nav>   
-<div id="count" class=" tw-w-76 tw-absolute tw-top-3/4 -tw-mt-23 tw-p-4 tw-bg-white tw-shadow-3xl tw-relative tw-z-50 lg:-tw-mt-28">
-  <nav >
-    <ul class="tw-grid tw-gap-y-8" >
-      <li>
-        <a href="#" class="tw-w-full tw-flex tw-items-center tw-font-medium ">
-          <i><img src="./img/icon/bag.svg" alt=""></i>
-          <p class="tw-ml-6">MINHA SACOLA (2) </p>
-        </a>
-        
-      </li> nescessaria a troca do "(2)" para inserção dinamica
-      <li>
-        <a href="#" class=" tw-w-full tw-flex tw-items-center tw-font-medium ">
-          <i><img src="./img/icon/person.svg" alt=""></i>
-          <p class="tw-ml-6">MINHA CONTA </p>
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
-</section> -->
+  <div id="count" class=" tw-w-76 tw-pl-5 tw-bottom-16 -tw-mt-23 tw-p-4 tw-bg-white tw-shadow-3xl tw-relative tw-z-50 lg:-tw-mt-28">
+    <nav >
+      <ul class="tw-grid tw-gap-y-8" >
+        <li class="tw-h-14">
+          <a href="#" class="tw-w-full tw-flex tw-items-center tw-font-medium ">
+            <i><img src="{{asset('./img/icon/bag.svg')}}" alt=""></i>
+            <p class="tw-ml-6 tw-text-2xl tw-text-black tw-font-bold">MINHA SACOLA (2) </p>
+          </a>
+          
+        </li> <!--nescessaria a troca do "(2)" para inserção dinamica-->
+        <li class="tw-h-14">
+          <a href="#" class=" tw-w-full tw-flex tw-items-center tw-font-medium ">
+            <i><img src="{{asset('./img/icon/person.svg')}}" alt=""></i>
+            <p class="tw-ml-6 tw-text-2xl tw-text-black tw-font-bold">MINHA CONTA </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+<!-- NAVIGATION MOBILE -->
