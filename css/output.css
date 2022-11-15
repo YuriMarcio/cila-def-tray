@@ -635,6 +635,10 @@ body {
   bottom: 2.5rem;
 }
 
+.tw-right-80{
+  right: 311px;
+}
+
 .tw-z-50{
   z-index: 50;
 }
