@@ -1,7 +1,7 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
-    slidesPerGroup: 3,
+    slidesPerGroup: 1,
     loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
@@ -10,44 +10,44 @@ var swiper = new Swiper(".mySwiper", {
     breakpoints: {
 
       300: {
-        slidesPerView: 2,
+        slidesPerView: 1.5,
         spaceBetween: 180,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       351: {
         slidesPerView: 2,
         spaceBetween: 150,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       474: {
         slidesPerView: 2,
         spaceBetween: 40,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       520: {
         slidesPerView: 3,
         spaceBetween: 220,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       610: {
         slidesPerView: 3,
         spaceBetween: 170,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       712: {
         slidesPerView: 3,
         spaceBetween: 80,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       800: {
         slidesPerView: 3,
         spaceBetween: 30,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       900: {
         slidesPerView: 4,
         spaceBetween: 20,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
       },
       
     }
