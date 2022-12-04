@@ -1,22 +1,26 @@
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
+    preloadImages : false,
     slidesPerGroup: 1,
     loop: true,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".mySwiper-next",
+      prevEl: ".mySwiper-prev",
     },
+    lazy :{
+      loadPrevNext: true,
+    },   
     breakpoints: {
 
       300: {
         slidesPerView: 1.5,
-        spaceBetween: 180,
+        spaceBetween: 10,
         slidesPerGroup: 1,
       },
       351: {
-        slidesPerView: 2,
-        spaceBetween: 150,
+        slidesPerView: 1.5,
+        spaceBetween: 10,
         slidesPerGroup: 1,
       },
       474: {

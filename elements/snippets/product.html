@@ -1,27 +1,27 @@
-<div itemid="30" class="product{{ product.has_other_prices ? ' has-other-prices' }}tw-min-w-242  lg:tw-min-w-0 lg:tw-max-w-305 tw-cursor-pointer tw-mt-24 ">
+<div itemid="30" class="product{{ product.has_other_prices ? ' has-other-prices' }}tw-min-w-242  lg:tw-min-w-0 lg:tw-max-w-305 tw-cursor-pointer tw-bg-white tw-mt-16 tw-mb-4 tw-ml-4">
     <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
         <div class="product-image">
             {% if product.images %}
                 {% if utils.is_mobile %}
-                    <img itemprop="image" src="{{ product.images[0].large }}" alt="{{ product.name }}"  title="{{ product.name }}">
+                    <img itemprop="image" class="tw-bg-white" src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
                 {% else %}
-                    <img itemprop="image"  data-original="{{ product.images[0].full }}" class="tw-min-w-242" src="{{ asset('img/loading.svg') }}" alt="{{ product.name }}" title="{{ product.name }}">
+                    <img itemprop="image"  data-original="{{ product.images[0].full }}" class="lazy" 
+                    src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
                 {% endif %}
             {% else %}
-                    <img itemprop="image" src="{{ product.images[0].large }}" alt="{{ product.name }}"  title="{{ product.name }}">
+                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
             {% endif %}
             {{ productHelper.banner() }}
             
             {% if settings.discount %}
                 {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
                 {% if porcentagemDesconto < 100 %}
-                  <span class="discount"> {{ porcentagemDesconto|number_format }}% de desconto </span>
+                <span class="discount"> {{ porcentagemDesconto|number_format }}% de desconto </span>
                 {% endif %}  
-            {% endif %}             
+            {% endif %}                     
         </div>
-       <section id="description" class="tw-text-black tw-text-2xl">
+       <section id="description" class="tw-text-black  tw-text-2xl tw-pt-7">
             <div class="product-name text-secondary-theme mt-3" itemprop="name">{{ product.name }}</div>
-
             <meta itemprop="productID" content="{{ product.id }}"/>
             <meta itemprop="sku" content="{{ product.id }}"/>
             {% if product.ean %}

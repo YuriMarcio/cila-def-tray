@@ -52,27 +52,11 @@
     "showcaseTitle": settings.list3
 } %}
 
-<div class="bg-secondary-theme py-5">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 text-center mb-3 mb-md-0">
-                <a href="/nossa-historia" class="d-block position-relative">
-                    <img class="img-fluid" src="{{ banners.extra2.src }}">
-                    <!--<div class="position-absolute top-50 start-50 text-white text-start">
-                        <span class="fs-6 text d-block">Nossa</span>
-                        <span class="fs-4 text fw-bold">História</span>
-                    </div>-->
-                </a>
-            </div>
-            <div class="col-md-6 text-center">
-                <a href="/praticas-responsaveis" class="d-block position-relative">
-                    <img class="img-fluid" src="{{ banners.extra3.src }}">
-                    <!--<div class="position-absolute top-50 text-white text-start praticas-responsaveis">
-                        <span class="fs-6 text d-block">Práticas</span>
-                        <span class="fs-4 text fw-bold">Responsáveis</span>
-                    </div>-->
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+{% element 'snippets/bannermain' %}
+
+{% element 'showcase-catalog' {
+    "products": list4,
+    "showcaseTitle": settings.list4
+} %}
+
+{% element 'snippets/instagram' %}

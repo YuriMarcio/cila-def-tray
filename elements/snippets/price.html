@@ -23,7 +23,7 @@
             
                 <div class="prices">
                     {% if product.has_variation %}
-                        <span class="price-various">{{ Translation('a_partir_de') }}</span> 
+                        <!--<span class="price-various">{{ Translation('a_partir_de') }}</span> -->
                     {% endif %} 
                     
                     {% if settings.price_before_style == 'strike' or settings.price_before_style == 'strike-depor' %}
@@ -67,7 +67,7 @@
             {% endif %}
             
         {% else %} 
-            <p>Esgotado!</p>
+            Esgotado!
         {% endif %} 
         
     {% else %} 

@@ -35,31 +35,29 @@
     <!-- google tag manager -->
     {{ googleTagManager.header(pages.current, tagManagerData) }}
 </head>
-<body>
+<body class="tw-overflow-x-hidden">
     {{ googleTagManager.top(pages.current, tagManagerData) }}
     <!--{% element 'snippets/messages' %} -->
     
 
     <div class="application">
-
-       
         {% if pages.current == 'home' %}
-        {% element 'header_home' %}
+            {% element 'header_home' %}
         {{ content_for_layout }}
         {% else %}
-        {% element 'header' %}
+            {% element 'header' %}
         {% endif %}
 
         {% element 'footer' %}
 
         {% if settings.hottags_position == 2 %}
-        <div class="tagcloud">
-            <h4>As palavras</h4>
-            <h3>{{ Translation('tags_mais_buscadas') }}</h3>
-            {% for tag in tags %}
-            <a href="{{ tag.url }}" style="font-size: {{ tag.font_size }}%">{{ tag.word }}</a>
-            {% endfor %}
-        </div>
+            <div class="tagcloud">
+                <h4>As palavras</h4>
+                <h3>{{ Translation('tags_mais_buscadas') }}</h3>
+                {% for tag in tags %}
+                <a href="{{ tag.url }}" style="font-size: {{ tag.font_size }}%">{{ tag.word }}</a>
+                {% endfor %}
+            </div>
         {% endif %}     
     </div>
 

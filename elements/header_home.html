@@ -12,12 +12,12 @@
             </a>
         </div>
         <!-- NAVIGATION MOBILE -->
-            <section id="mobile-dropdown-menu" class="tw-absolute tw-w-96 tw-top-0 tw-left-0  lg:tw-hidden" x-show="open" @click.outside="open = false"
-            x-transition:enter="tw-duration-300"
-            x-transition:leave-end="-tw-duration-300"
-            > <!--colocar o hidden aqui -->
+        <section id="mobile-dropdown-menu" class="tw-absolute tw-w-96 tw-top-0 tw-left-0 lg:tw-hidden" x-show="open" @click.outside="open = false"
+        x-transition:enter="tw-duration-300"
+        x-transition:leave-end="-tw-duration-300"
+        > <!--colocar o hidden aqui -->
                 {% element 'snippets/menu-mobile' %}
-            </section>
+        </section>
         <!-- NAVIGATION MOBILE -->
         <!-- NAVIGATION DESKTOP -->
         <nav id="navgation-desktop" class="tw-hidden lg:tw-block tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-ml-4 tw-overflow-hidden tw-relative tw-red-800 " x-show="!search">

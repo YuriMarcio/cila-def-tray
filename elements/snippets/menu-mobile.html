@@ -1,12 +1,12 @@
-  <form method="GET" class=" tw-w-76 tw-h-32 tw-relative tw-flex tw-bg-white tw-z-50 tw-shadow-lg tw-p-4">
-        <input type="search" style="background-color:#EBEBEB ;"class="tw-p-2 tw-w-full tw-h-20 tw-text-2xl  tw-text-gray-900 tw-italic tw-caret-slate-400 tw-bg-gray-900 " placeholder="O QUE VOCÊ PROCURA?" >
-        <span class="tw-relative -tw-ml-11 tw-flex tw-items-center tw-bottom-2 tw-right-3 tw-pl-2  ">
-          <button type="submit" class="tw-p-1 focus:tw-outline-none focus:tw-shadow-outline">
-            <a href="#"><img src="{{asset('./img/icon/searblack.svg')}}" alt="" class="tw-h-8"></a>
-          </button>
-        </span>
+    <form method="GET" class=" tw-w-76 tw-h-32 tw-relative tw-flex tw-bg-white tw-z-50 tw-shadow-lg tw-p-4">
+      <input  style="background-color:#EBEBEB ;" class="tw-p-2 tw-w-full tw-h-20 tw-text-2xl  tw-text-gray-900 tw-italic tw-caret-slate-400 tw-bg-gray-900 " placeholder="O QUE VOCÊ PROCURA?" >
+      <span class="tw-relative -tw-ml-11 tw-flex tw-items-center tw-bottom-2 tw-right-3 tw-pl-2  ">
+        <button type="submit" class="tw-p-1 focus:tw-outline-none focus:tw-shadow-outline">
+          <a href="#"><img src="{{asset('./img/icon/searblack.svg')}}" alt="" class="tw-h-8"></a>
+        </button>
+      </span>
     </form>
-    <button id="close" class="tw-relative tw-left-80 tw-bottom-32 tw-p-4 tw-bg-white tw-z-50" @click="open = ! open">
+    <button id="close" class="tw-relative tw-left-80 tw-bottom-32 tw-p-4 tw-bg-white tw-z-50" >
       <img  src="{{asset('./img/icon/close.svg')}}" alt="" >
     </button>
     <nav id="navgation" class=" tw-w-76 tw-bg-white lg:tw-init tw-snap-y tw-relative tw-bottom-16 ">
@@ -15,7 +15,7 @@
               <li>
                   <a href="{{ categoria.link }}" class="tw-flex tw-justify-between tw-py-3 tw-px-2">
                       <p class="tw-py-3  tw-px-4 tw-text-2xl hover:tw-border-b-2 tw-text-black  ">
-                          {{ categoria.name }}
+                          {{ categoria.name }}vou parar
                       </p>
                       <img src="{{asset('./img/icon/arrow.svg')}}" alt="">
                   </a> 

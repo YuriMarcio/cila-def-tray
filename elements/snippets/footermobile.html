@@ -1,0 +1,84 @@
+<div id="footer-menu-mobile" class="lg:tw-hidden tw-text-2xl">
+    <section id="submenuBottom" class="tw-bg-black tw-py-4 tw-px-4 lg:tw-flex"  x-data="{acord1 : false,acord2 : false,acord3 : false,acord4 : false}">
+      <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4  lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start ">
+        <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4" @click="acord1 = ! acord1">
+          <h3 class="tw-text-white ">INSTITUCIONAL</h3>
+          <i x-show="!acord1" class="fa-solid fa-plus tw-text-white lg:invisible"></i>
+          <i x-show="acord1" class="fa-solid fa-minus tw-text-white lg:invisible"></i>
+        </button>
+        <div id="line" class="lg:tw-w-full lg:h-px tw-bg-white lg:tw-mb-4"></div>
+        <section id="" x-show="acord1">
+          <nav>
+            <ul>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>CONTATO</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>PERGUNTAS FREQUENTES</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>DICAS DE USO</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>GUIA DE MEDIDAS</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>CILA EM CASA</strong></a></li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+      <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start   ">
+        <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4" @click="acord2 = ! acord2">
+          <h3 class="tw-text-white ">POLÍTICAS</h3>
+          <i x-show="!acord2" class="fa-solid fa-plus tw-text-white lg:invisible"></i>
+          <i x-show="acord2" class="fa-solid fa-minus tw-text-white lg:invisible"></i>
+        </button>
+        <div id="line" class="lg:tw-w-full lg:h-px lg:tw-bg-white lg:tw-mb-4"></div>
+        <section id="menuOpitions" x-show="acord2">
+          <nav>
+            <ul>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>ENTREGA E DEVOLUÇÃO</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>ENTREGA E FRETE</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>TERMOS DE USO</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>PRIVACIDADE</strong></a></li>
+            </ul>
+          </nav>
+        </section>
+      </div> 
+      <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start"@click="acord3 = ! acord3">
+        <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4">
+        <h3 class="tw-text-white ">SOBRE NÓS</h3>
+        <i x-show="!acord3" class="fa-solid fa-plus tw-text-white lg:invisible"></i>
+        <i x-show="acord3" class="fa-solid fa-minus tw-text-white lg:invisible"></i>
+        </button>
+        <div id="line" class="lg:tw-w-full lg:h-px lg:tw-bg-white lg:tw-mb-4"></div>
+        <section id="menuOpitions" x-show="acord3">
+          <nav>
+            <ul>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>QUEM SOMOS</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>NOSSA HISTÓRIA</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>NOSSA FÁBRICA</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>PRÁTICAS REPONSÁVEIS</strong></a></li>
+              <li class="tw-my-3"><a href="#" class="tw-text-white"><strong>NOSSA LOJA</strong></a></li>
+            </ul>
+          </nav>
+        </section>
+      </div> 
+      <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start  py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start " @click="acord4 = ! acord4">
+        <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4">
+        <h3 class="tw-text-white ">CONTATO</h3>
+        <i x-show="!acord4" class="fa-solid fa-plus tw-text-white lg:invisible"></i>
+        <i x-show="acord4" class="fa-solid fa-minus tw-text-white lg:invisible"></i>
+        </button>
+        <section id="menuOpitions" x-show="acord4">
+          <div id="textContact" class="tw-text-white tw-mb-3">
+          <p class="tw-text-white">(31)2555-7566 - 11h ás 19h</p>
+          <p class="tw-text-white">(31)99142-4956 - 10h ás 17h</p>
+          <p class="tw-text-white">cila@cila.com.br</p>
+          <p class="tw-text-white">troca@cila.com.br</p>
+          </div>
+          <div id="textContact" class="tw-text-white tw-mb-3">
+          <p class="tw-text-white">Horário de funcionamento da loja física:</p>
+          <p class="tw-text-white">Segunda á Sexta - 10h ás 19h</p>
+          <p class="tw-text-white">Sábado - 9h ás 14h</p>
+          </div>
+          <div id="social" class="tw-flex tw-gap-4">
+          <i><a href="https://www.instagram.com/cila_br/"><img src="{{asset('./img/icon/insta.svg')}}" alt=""></a></i>
+          <i><a href="https://www.facebook.com/cilabeachwear"><img src="{{asset('./img/icon/fac.svg')}}" alt=""></a></i>
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
