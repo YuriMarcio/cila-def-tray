@@ -18,6 +18,10 @@
     <!-- <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}" type="text/css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/style
+    
+    .css') }}" type="text/css">
     {% if settings.extension_id == '222' %}
         <link rel="stylesheet" href="{{ asset('css/saude-e-beleza.css') }}" type="text/css">
     {% endif %}
@@ -35,7 +39,7 @@
     <!-- google tag manager -->
     {{ googleTagManager.header(pages.current, tagManagerData) }}
 </head>
-<body class="tw-overflow-x-hidden">
+<body class="tw-overflow-x-hidden tw-bg-white ">
     {{ googleTagManager.top(pages.current, tagManagerData) }}
     <!--{% element 'snippets/messages' %} -->
     
@@ -43,9 +47,13 @@
     <div class="application">
         {% if pages.current == 'home' %}
             {% element 'header_home' %}
-        {{ content_for_layout }}
+            {{ content_for_layout }}
         {% else %}
             {% element 'header' %}
+
+
+            b
+            {{ content_for_layout }}
         {% endif %}
 
         {% element 'footer' %}
@@ -81,6 +89,7 @@
     <script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/theme.min.js') }}"></script>
     <script src="{{asset('js/index.js')}}"></script>
+    <script src="{{asset('js/carrinho.js')}}"></script>
 </body>
 </html>
 {% endspaceless %}

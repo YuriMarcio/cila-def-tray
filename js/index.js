@@ -77,3 +77,5 @@ var swiper = new Swiper(".mySwiper", {
   function app(){
     type:"less"
   }
+
+  

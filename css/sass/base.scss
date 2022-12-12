@@ -35,6 +35,10 @@ $sm: 767px;
 $md: 992px;
 
 // rem ajust
+*{
+    background-color: #fff;
+}
+
 html,
 body{
     @include typo(10px, 400, $font, 1);
@@ -42,7 +46,6 @@ body{
 
 .application{
     background-attachment: fixed;
-    background-color: #f1f1f1;
     background-position: center top;
 }
 

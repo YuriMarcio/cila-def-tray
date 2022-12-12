@@ -6,7 +6,7 @@
         </button>
       </span>
     </form>
-    <button id="close" class="tw-relative tw-left-80 tw-bottom-32 tw-p-4 tw-bg-white tw-z-50" >
+    <button id="close" class="tw-relative tw-left-80 tw-bottom-32 tw-p-4 tw-bg-white tw-z-50"  @click="open = ! open">
       <img  src="{{asset('./img/icon/close.svg')}}" alt="" >
     </button>
     <nav id="navgation" class=" tw-w-76 tw-bg-white lg:tw-init tw-snap-y tw-relative tw-bottom-16 ">
@@ -15,7 +15,7 @@
               <li>
                   <a href="{{ categoria.link }}" class="tw-flex tw-justify-between tw-py-3 tw-px-2">
                       <p class="tw-py-3  tw-px-4 tw-text-2xl hover:tw-border-b-2 tw-text-black  ">
-                          {{ categoria.name }}vou parar
+                          {{ categoria.name }}
                       </p>
                       <img src="{{asset('./img/icon/arrow.svg')}}" alt="">
                   </a> 
@@ -29,7 +29,7 @@
         <li class="tw-h-14">
           <a href="#" class="tw-w-full tw-flex tw-items-center tw-font-medium ">
             <i><img src="{{asset('./img/icon/bag.svg')}}" alt=""></i>
-            <p class="tw-ml-6 tw-text-2xl tw-text-black tw-font-bold">MINHA SACOLA (2) </p>
+            <p class="tw-ml-6 tw-text-2xl tw-text-black tw-font-bold">MINHA SACOLA (<strong> {{ settings.currency }} <span data-cart="price">{{ cart.price }}</span></strong>) </p>
           </a>
           
         </li> <!--nescessaria a troca do "(2)" para inserção dinamica-->

@@ -1,10 +1,10 @@
 {% set checkout = "checkout" in pages.current ? "true" : "false" %}
-    <footer class="tw-bg-white tw-mb-4 tw-text-2xl ">
+    <footer class="tw-mb-4 tw-text-2xl tw-bg-black ">
         {% element 'snippets/newsletter' %}
         {% element 'snippets/footermobile' %}
-        <div id="footer-menu-desk" class="tw-hidden lg:tw-block" >
-            <section id="submenuBottom" class="tw-bg-black tw-py-4 tw-px-4 lg:tw-flex">
-              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4  lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start ">
+        <div id="footer-menu-desk" class=" tw-hidden lg:tw-block lg:tw-h-full lg:tw-pt-8 " >
+            <section id="submenuBottom" class="limited tw-bg-black lg:tw-flex lg:tw-align-center lg:tw-justify-center">
+              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4  lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-min-h-237 lg:tw-py-2 lg:tw-content-start ">
                 <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4 tw-border-b-2 tw-border-gray-700">
                   <h3 class="tw-text-white ">INSTITUCIONAL</h3>
                 </button>
@@ -21,7 +21,7 @@
                   </nav>
                 </section>
               </div>
-              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start   ">
+              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start  lg:tw-min-h-237 ">
                 <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4 tw-border-b-2 tw-border-gray-700">
                   <h3 class="tw-text-white ">POLÍTICAS</h3>
                 </button>
@@ -37,7 +37,7 @@
                   </nav>
                 </section>
               </div> 
-              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start  ">
+              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start tw-border-b tw-border-gray-700 py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start lg:tw-min-h-237  ">
                 <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4 tw-border-b-2 tw-border-gray-700">
                 <h3 class="tw-text-white ">SOBRE NÓS</h3>
                 </button>
@@ -51,10 +51,10 @@
                       <li class="tw-my-3"><a href="/praticas-responsaveis" class="tw-text-white"><strong>PRÁTICAS REPONSÁVEIS</strong></a></li>
                       <li class="tw-my-3"><a href="/nossa-loja" class="tw-text-white"><strong>NOSSA LOJA</strong></a></li>
                     </ul>
-                  </nav>b
+                  </nav>
                 </section>
               </div> 
-              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start  tw-py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start  ">
+              <div id="menuFooter" class="tw-w-full tw-flex tw-flex-col tw-justify-between tw-items-start  tw-py-3 tw-mb-4 lg:tw-ml-4 lg:tw-border-none lg:tw-flex-col lg:tw-items-start lg:tw-grid lg:tw-content-start lg:tw-min-h-237  ">
                 <button id="divider" class="tw-flex tw-justify-between tw-items-center tw-w-full tw-mb-4 tw-border-b-2 tw-border-gray-700">
                 <h3 class="tw-text-white ">CONTATO</h3>
                 </button>
@@ -78,7 +78,7 @@
               </div>
             </section>
           </div>
-          <section id="acepts" class="tw-py-4 lg:tw-flex lg:tw-items-center lg:tw-justify-between ">
+          <section id="acepts" class="limited tw-bg-white lg:tw-flex lg:tw-items-center lg:tw-justify-between  ">
             <div id="divider" class="lg:tw-flex lg:tw-items-center lg:tw-gap-4">
               <div id="cards" class="tw-mb-4 lg:tw-mb-0">
                 <ul class="tw-flex tw-justify-center tw-items-center tw-gap-4 lg:tw-gap-2">
@@ -103,7 +103,7 @@
                 {% endif %}
               </div>
             </div>
-            <div id="textFooter" class="tw-flex tw-items-center tw-text-2xl tw-px-4 tw-py-4 lg:tw-order-first lg:tw-w-4/12 lg:tw-mt-2 lg:tw-text-left">
+            <div id="textFooter" class="tw-flex tw-items-center tw-text-2xl tw-px-4 tw-py-2 lg:tw-order-first lg:tw-w-4/12 lg:tw-mt-2 lg:tw-text-left">
               <p class="tw-text-center lg:tw-text-left">
                 CONFECÇÕES CILA LTDA - 20.508.867/0001-60<br>
                 Av. do Contorno, 6181, Savassi - Belo Horizonte - MG - CEP:30.110-110
