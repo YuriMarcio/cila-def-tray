@@ -1,14 +1,19 @@
 <main> 
-
+  <div class="tw-w-full tw-h-24"></div>
+  {% element 'snippets/payment_benefits_pruducts' %}
   <div class=" lg:tw-w-full lg:tw-flex lg:tw-p-3  ">
     <section id="item-product" class="tw-w-full tw-flex tw-flex-col lg:tw-flex-row tw-justify-center tw-items-center lg:tw-justify-start lg:tw-items-start lg:tw-mr-5 ">
       <div id="img-product-desktop" class="tw-hidden lg:tw-block lg:tw-w-full lg:tw-flex lg:tw-flex-row-reverse lg:tw-justify-center lg:tw-gap-5">
-        <img src="./img/produtos/clothing2.png" alt="" class=" lg:tw-max-w-521 lg:tw-min-w-330 lg:tw-shrink  tw-object-cover tw-w-full">
-        <div>
-          <img src="./img/produtos/clothing2.png" alt="" class="tw-max-w-197/1 tw-min-w-120 tw-shrink tw-mb-4">
-          <img src="./img/produtos/clothing2.png" alt="" class="tw-max-w-197/1 tw-min-w-120 tw-shrink">
-        </div>
-      </div>
+        {% element 'snippets/schema-product' %}
+        {% if product.images %}
+          <div class="product-gallery {{ product.images|length  <= 1 and not product.video ? 'hide-carousel' }}">
+            {{ productHelper.gallery() }}
+          </div>
+        {% else %}
+          <div class="product-gallery no-image">
+            <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada">
+          </div>
+        {% endif %}
       <!--PRODUCT MOBILE -->
       <div id="img-product-mobile" class=" tw-flex tw-flex-col tw-m-5 lg:tw-p-0 sm:tw-object-none tw-overflow-hidden tw-max-w-468 tw-min-w-328 lg:tw-hidden">
         <img src="./img/produtos/clothing2.png" alt="" class="tw-w-468 tw-shrink tw-mb-4">
@@ -40,53 +45,67 @@
       <!--PRODUCT MOBILE -->
     </section>
     <section id="detail-product" class="lg:tw-w-6/12 tw-ml-4 tw-shrink ">
-      <div id="brad-product" class="tw-hidden lg:tw-block tw-my-3">
-        <ul class="tw-flex tw-justify-start tw-items-center tw-gap-2 tw-text-sm tw-text-gray-600 tw-font-bold">
-          <li>HOME</li>
-          <span class="tw-w-1 tw-h-1 tw-bg-slate-500"></span>
-          <li>BIQUÍNIS</li>
-          <span class="tw-w-1 tw-h-1 tw-bg-slate-500"></span>
-          <li>CALCINHA</li>
-        </ul>
-      </div>
-      <div id="title-product" class="tw-mb-4">
-        <h1 class="tw-font-bold tw-mb-4 tw-text-xl">CALCINHA HOT PANT CAVADA</h1>
-        <span class="tw-text-slate-600">REF.: HF0S8FH0DSF</span>
-      </div>
-      <div id="price-product" class="tw-mb-4">
-        <p class="tw-leading-6">
-          <b class="tw-text-bold">R$444,00</b><br> OU EM 4X DE R$111,00
+      <div class="col-md-6">
+        {% element 'snippets/breadcrumb' %}
+        <h1 class="tw-text-3xl tw-font-bold tw-mb-4" itemprop="name">{{ product.name }}</h1>
+
+        <div class="tw-text-lg tw-uppercase tw-text-slate-400 tw-mb-4">
+          {{ productHelper.details() }}
+        </div>
+
+        {% for discount in ProgressiveDiscounts %}
+        {% if discount.tag %}
+            <div class="product-discount-recursive-tag">{{discount.tag}}</div>
+            <div class="product-discount-recursive-desc">{{discount.description}}</div>
+        {% endif %}
+        {% endfor %}
+
+        <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
+            
+            {% if settings.cache_infopreco %}
+            <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
+                <div class="pricing">
+                    Carregando...
+                </div>
+            </div>
+            {% else %}
+                {{ productHelper.pricing() }}
+            {% endif %}
+            <div class="tw-uppercase">{{ productHelper.variants() }}</div>
+            {{ productHelper.kit() }}
+            {{ productHelper.gifts() }}
+            {{ product.additional_information }}
+            <div>
+                {{ productHelper.form() }}
+            </div>
+            {% if not product.upon_request and product.available %}
+                {{ productHelper.wishlist() }}
+            {% endif %}
+            <div id="cep" class="tw-relative tw-mb-12">
+              <h4 class="tw-text-slate-600 tw-mb-2">CALCULAR FRETE</h4>
+              {{ productHelper.shipping() }}
+            </div>
+            {% if product.additional_message %}
+            <div class="additional-message">
+                {{ product.additional_message }}
+            </div>
+            {% endif %}
+            
+        </form>
+        
+        <p class="product-details">
+            {% if settings.show_product_stock %}
+                <span>Estoque: <b>{{ product.stock }}</b></span>
+            {% endif %}
+            {{ productHelper.icons() }}
         </p>
-      </div>
-      <div id="select-detail-product">
-        <div class="md:tw-flex lg:tw-flex-col tw-gap-14 lg:tw-gap-0">
-          <div id="color-product" class="tw-mb-8">
-            <h4 class="tw-text-slate-600 tw-mb-2">SELECIONE A COR</h4>
-            <div id="color">
-              <ul class="tw-flex tw-gap-4">
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black"><div class="tw-w-26 tw-h-26 tw-bg-black"></div></button></li>
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black"><div class="tw-w-26 tw-h-26 tw-bg-pink-600"></div></button></li>
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black"><div class="tw-w-26 tw-h-26 tw-bg-yellow-400"></div></button></li>
-              </ul>
-            </div>
+        {{ productHelper.bonus() }}
+        {% if settings.social_position == 1 %}
+          <div class="product-social">
+            {{ productHelper.social() }}
           </div>
-          <div id="size-product" class="tw-mb-8">
-            <h4 class="tw-text-slate-600 tw-mb-2">SELECIONE O TAMANHO</h4>
-            <div id="size">
-              <ul class="tw-flex tw-gap-4">
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black focus:tw-font-bold"><div class="tw-w-26 tw-h-26">PP</div></button></li>
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black focus:tw-font-bold"><div class="tw-w-26 tw-h-26">P</div></button></li>
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black focus:tw-font-bold"><div class="tw-w-26 tw-h-26">M</div></button></li>
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black focus:tw-font-bold"><div class="tw-w-26 tw-h-26">G</div></button></li>
-                <li><button class="tw-p-0.5 tw-border-2 tw-border-slate-600 tw-flex tw-justify-center focus:tw-border-black focus:tw-font-bold"><div class="tw-w-26 tw-h-26">GG</div></button></li>
-              </ul>
-            </div>
-          </div>
-      </div>
-        <button class="tw-w-full tw-border tw-border-black tw-bg-black tw-text-white tw-py-4 tw-flex tw-justify-center tw-items-center tw-gap-2 tw-mb-8 ">
-          <img src="./img/icon/bagwhite.svg" alt="" class="tw-w-14"> 
-          <p>ADICIONAR À SACOLA</p>
-        </button>
+        {% endif %}
+
         <div id="cep" class="tw-relative tw-mb-12">
           <h4 class="tw-text-slate-600 tw-mb-2">CALCULAR FRETE</h4>
           <div cl>
@@ -132,4 +151,10 @@
         </div>
       </div>
   </div>
+  {% if product.related_products %}
+    {% element 'showcase-relative' {
+      "products": product.related_products,
+      "showcaseTitle": 'Produtos Relacionados'
+    } %}
+  {%endif%}
   </section>

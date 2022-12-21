@@ -2,3 +2,134 @@
 .application{
     background-color: #fff !important;
 }
+#visualAbas{
+    visibility: hidden;
+}
+#colFotos{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+
+}
+#foto_a{
+    margin-top: -6.8px;
+}
+#foto_a > #carousel{
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    gap: 10px;
+}
+#foto_a > #carousel >.thumbPic{
+    width: 100%;
+    
+    min-height: 181px !important;
+    max-height: 297px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    max-width: 32.563rem;
+    background-color: black;
+}
+
+#foto_a > #carousel > .thumbPic > span > .left > img{ 
+    
+    min-height: 181px !important; /* verificar o tamanho minimo no mobile pelo figma  ( 297 para salvar desk)*/
+    max-height: 297px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+#showcase-relative{
+    display: flex;
+    flex-direction: column !important;
+}
+
+#showcase-relative > h2{
+    position: relative;
+}
+
+#product-name-relative{
+    color: black;
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */  
+    font-weight: 700; 
+}
+
+/* BREADCRUMB */
+.page-product .breadcrumb .icon-breadcrumb:before {
+    font-size: 0.5rem;
+    border-radius: 100%;
+    margin-top: -20px;
+    position: relative;
+    top: -2px;
+}
+.icon-breadcrumb:before {
+    content: " ";
+    background-color: #656565;
+    margin: 0 8px;
+}
+.breadcrumb{
+    font-size: 14px;
+}
+.breadcrumb > .breadcrumb-item{
+    font-size: 14px;
+}
+.breadcrumb > .breadcrumb-item a{
+    font-weight: 700;
+} 
+/* valor do produto pricing */
+.page-product #preco .PrecoPrincipal {
+    color: #000 !important;
+    display: block;
+    height: 45px;
+    font-family: "Roboto",sans-serif;
+    font-size: 2.9rem !important;
+    font-weight: 700;
+    line-height: 4.5rem;
+    margin-bottom: 10px;
+}
+abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: none;
+}
+/* variações de produto */
+.page-product #menuVars {
+    display: block;
+    margin-bottom: -15px;
+}
+.page-product .texto_variacao h2 {
+    font-family: "Roboto",sans-serif;
+    font-size: 1rem; /* 12px */
+    line-height: 1rem; /* 16px */
+    font-weight: 400;
+    margin: 10px 0;
+    color: #656565;
+}
+/* CEP*/
+#cepbox > label{
+    visibility: hidden;
+}
+#cepbox > input#cep1{
+    width: 60%;
+}
+.page-product #cepbox .botao-simular-frete {
+    background: #4b8cdc;
+    color: #fff;
+    width: 82px;
+    font-size: 1.4rem;
+    right: 2px;
+    height: 40px;
+    /* margin-left: 10px; */
+    padding: 8px;
+    vertical-align: top;
+    /* margin-top: 10px; */
+    position: absolute;
+    /* flex-wrap: wrap; */
+}
+
+/* CART */
+
+h1#product-name #text {
+    color: red;
+}

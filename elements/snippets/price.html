@@ -37,7 +37,7 @@
                         
                     {% if product.price_offer > 0 and product.show_price %}
                         <div class="price-before {{ priceStyle }}">
-                            {{ priceOld }} <abbr class="currency" title="BRL">{{ settings.currency }}</abbr> 
+                         <span>De:&nbsp</span> {{ priceOld }} <abbr class="currency tw-border-none" title="BRL">{{ settings.currency }}</abbr> 
                             <span>{{ product.price|currency }}</span>
                         </div>
                         
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     {% else %}
-                        <div>
+                        <div class="tw-underline-offset-0">
                             {% if product.has_other_prices %}
                                 {{ Translation('apartir') }} <abbr class="currency" title="BRL">{{ settings.currency }}</abbr>
                                 <span content="{{ product.price }}">{{ product.price|currency  }}</span>

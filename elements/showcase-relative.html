@@ -1,0 +1,29 @@
+{% if products|length > 0 %}
+   <div class="showcase  lg:limited tw-w-full tw-bg-white tw-flex tw-flex-col tw-my-20">
+      <h2 class="">
+         <strong>Vejá também</strong>
+      </h2>
+      <div class="lg:limited tw-w-full tw-relative">
+          <div class="swiper mySwiper ">
+            <div class="swiper-wrapper">
+              {% for product in products %}
+                <div class="swiper-slide tw-text-base ">
+                    {% element 'snippets/product-relative' {"product": product} %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="swiper-button-next tw-invisible tw-hidden ">
+            <button id="arrow-right" class="tw-w-24 tw-h-24 tw-absolute tw-right-7 tw-bottom-10 tw-justify-center tw-items-center  tw-bg-black/30 tw-flex lg:tw-visible">
+              <img class="tw-rotate-180" src="{{asset('./img/icon/arrowWhite.svg')}}" alt="">
+            </button>
+          </div>
+          <div class="swiper-button-prev tw-invisible">
+            <button id="arrow-left" class="tw-w-24 tw-h-24 tw-absolute tw-left-11 tw-bottom-10 tw-justify-center tw-items-center tw-bg-black/30 tw-flex lg:tw-visible">
+              <img src="{{asset('./img/icon/arrowWhite.svg')}}" alt="">
+            </button>
+          </div>
+        </div>
+      </div>
+   </div>
+{% endif %}

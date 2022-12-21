@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "@tray-tecnologia/tray-cli": "^1.0.0"
+    "@tray-tecnologia/tray-cli": "^1.0.0",
+    "jquery": "^3.6.2"
   },
   "scripts": {
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch",

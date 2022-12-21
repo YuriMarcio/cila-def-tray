@@ -12,15 +12,15 @@
                 <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
             {% endif %}
             {{ productHelper.banner() }}
-            
+                             
+        </div>   
+        <section id="description" class="tw-text-black  tw-text-2xl tw-pt-7">
             {% if settings.discount %}
-                {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
+            {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
                 {% if porcentagemDesconto < 100 %}
-                <span class="discount"> {{ porcentagemDesconto|number_format }}% de desconto </span>
-                {% endif %}  
-            {% endif %}                     
-        </div>
-       <section id="description" class="tw-text-black  tw-text-2xl tw-pt-7">
+                <span class="discount tw-text-xl "> {{ porcentagemDesconto|number_format }}% de desconto </span>
+            {% endif %}  
+            {% endif %} 
             <div class="product-name text-secondary-theme mt-3" itemprop="name">{{ product.name }}</div>
             <meta itemprop="productID" content="{{ product.id }}"/>
             <meta itemprop="sku" content="{{ product.id }}"/>
