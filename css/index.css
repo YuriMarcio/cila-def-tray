@@ -1,45 +1,29 @@
 
+/* PRONTOS */
+.border-b{
+    border-bottom: 1px solid rgba(71 85 105 0.8);
+}
+.border{
+    border: 4px solid rgba(71 85 105 0.8);
+}
+.border:hover{
+    border: 1px solid rgba(71 85 105 0.8);
+}
+
+/* PRONTOS */
+
 .application{
     background-color: #fff !important;
 }
-#visualAbas{
+/* #visualAbas{
     visibility: hidden;
 }
 #colFotos{
     display: flex;
     flex-direction: row-reverse;
-    gap: 4px;
+    gap: 5px;
+} */
 
-}
-#foto_a{
-    margin-top: -6.8px;
-}
-#foto_a > #carousel{
-    height: 100%;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    -ms-flex-direction: column;
-    gap: 10px;
-}
-#foto_a > #carousel >.thumbPic{
-    width: 100%;
-    
-    min-height: 181px !important;
-    max-height: 297px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    max-width: 32.563rem;
-    background-color: black;
-}
-
-#foto_a > #carousel > .thumbPic > span > .left > img{ 
-    
-    min-height: 181px !important; /* verificar o tamanho minimo no mobile pelo figma  ( 297 para salvar desk)*/
-    max-height: 297px;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
 #showcase-relative{
     display: flex;
     flex-direction: column !important;
@@ -68,6 +52,10 @@
     content: " ";
     background-color: #656565;
     margin: 0 8px;
+}
+.breadcrumb > .breadcrumb-item {
+    font-size: 13px;
+    color: #656565;
 }
 .breadcrumb{
     font-size: 14px;
@@ -106,12 +94,82 @@ abbr:where([title]) {
     margin: 10px 0;
     color: #656565;
 }
-/* CEP*/
-#cepbox > label{
-    visibility: hidden;
+.page-product .texto_variacao h2 {
+    font-family: "Roboto",sans-serif;
+    font-size: 1.3rem;
+    line-height: 1rem;
+    font-weight: 400;
+    margin: 10px 0;
+    color: #656565;
 }
-#cepbox > input#cep1{
+/* BUTÃO COMPRAR */
+button#button-buy{
+    width: 100%;
+    background-color: #000;
+    color: white;
+}
+/* CEP*/
+#cep{
+    margin-top: 20px;
+}
+#cepbox > label {
+    display: none;
+}
+.page-product #cepbox .botao-simular-frete {
+    background: #4b8cdc;
+    color: #fff;
+    font-size: 1.4rem;
+    height: 40px;
+    margin-left: 10px;
+    padding: 14px;
+    vertical-align: top;
+    margin-top: 0;
+}
+.page-product #cepbox input {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    height: 40px;
+    margin: 0;
+    text-align: center;
+}
+#cepbox > input#cep1{   
     width: 60%;
+}
+.page-product #cepbox .botao-simular-frete {
+    background: #4b8cdc;
+    color: #fff;
+    width: 82px;
+    font-size: 1.4rem;
+    right: 2px;
+    height: 40px;
+    padding: 8px;
+    vertical-align: top;
+}
+.page-product #cepbox {
+    color: #aaa;
+    font-family: "Roboto",sans-serif;
+    font-size: 1.4rem;
+    font-weight: 450;
+    line-height: 1.4rem;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-product .additional-message, .page-product .additional-information {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: justify;
+    display: none;
+}
+
+/* cep buton */
+html .botao-commerce, html .botao-commerce:hover, html .botao-commerce:link, .page-catalog .filter-button, .page-search .filter-button {
+    padding: 7px 10px;
+    background: white;
+    color: black;
+    border: 1px solid black;
 }
 .page-product #cepbox .botao-simular-frete {
     background: #4b8cdc;
@@ -123,13 +181,87 @@ abbr:where([title]) {
     /* margin-left: 10px; */
     padding: 8px;
     vertical-align: top;
-    /* margin-top: 10px; */
-    position: absolute;
-    /* flex-wrap: wrap; */
+}   
+#news{
+    border-bottom: 2px solid #374151;
 }
-
+#acepts{
+    display: flex;
+}
 /* CART */
 
-h1#product-name #text {
-    color: red;
+/* filter mobile */
+#button-filter{
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(0, 0, 0, 0.719);
+    z-index: 70;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 2%;
+    right: 0;
+}
+#dropdown-filter{
+    position: fixed;
+    top: 2%;
+    right: 0;
+    z-index: 80;
+}
+#filter-mobi{
+    padding-top: -10px;
+    padding-bottom: 40px !important;
+}
+/* FILTER */
+#filter_page{
+    width: 100%;
+    min-width: 110px;
+}
+.filter__form{
+    margin-top: 20px;
+}
+/* paginate */
+.page-catalog .btns-paginator, .page-catalog .page-link, .page-search .btns-paginator, .page-search .page-link {
+    border: 2px solid #aaa;
+    color: #a2a2a2;
+    display: inline-block;
+    line-height: 2rem;
+    padding: 2px 4px;
+    margin: 0 5px;
+    vertical-align: top;
+    cursor: pointer;
+}
+.page-catalog .paginate-links .page-current, .page-search .paginate-links .page-current {
+    border: 2px solid #000;
+    color: #a2a2a2;
+    display: inline-block;
+    line-height: 2rem;
+    padding: 2px 9px !important;
+    margin: 0 5px;
+    vertical-align: top;
+    cursor: pointer;
+}
+/* payment_benefits */
+#line-bottom{
+    border-bottom: 1px solid #EBEBEB;
+}
+
+/* categories */
+
+#categories{
+    border-right: 1px solid #EBEBEB;
+}
+
+@media (max-width: 700px)
+{
+    #grid-cate{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 494px)
+{
+    #grid-cate{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 }

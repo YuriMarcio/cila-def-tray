@@ -4,23 +4,27 @@
     </button>
     <div id="sacola-produtos" class=" tw-h-126 tw-w-76 tw-relative tw-bottom-16 tw-pl-4 tw-bg-white tw-z-50 tw-pt-8 tw-overflow-auto ">
       <h1 class="tw-mb-6 tw-text-2xl">MINHA SACOLA (<span data-cart="amount">{{ cart.amount }}</span>) </h1>
-        <div id="product" class="tw-flex tw-justify-between tw-mb-5">
-          <div id="product-image" class="tw-w-70">
-            <img id="image-thumb" src="">
-          </div>
-          <div id="product-info" class="tw-w-160 tw-py-2">
-            <h1 id="product-name" class="tw-font-bold tw-leading-9 tw-break-normal tw-mb-1 tw-text-xl"></h1>
-            <p id="product-valuation" class="tw-mb-1 tw-text-2xl"><strong></strong></p>
-            <!-- <div id="product-amount" class="tw-flex">
-              <button id="les" class="tw-p-2 tw-border tw-border-black"><img src="{{asset('./img/icon/less.svg')}}" alt=""></button>
-              <div id="mount" class="tw-px-2 tw-py-1 tw-text-2xl tw-bg-zinc-200"><span>01</span></div>
-              <button id="more" class="tw-p-2 tw-border tw-border-black"><img src="{{asset('./img/icon/moreB.svg')}}" alt=""></button>
-            </div> -->
-          </div>
-          <button id="remove-product" class='tw-flex tw-justify-center tw-items-center'>
-            <img src="{{asset('./img/icon/trash.svg')}}" alt="" class="tw-h-9">
-          </button>
-        </div>
+        <ul id="cart-prod">
+          <!-- <li id="prod">
+            <div id="product" class="tw-flex tw-justify-between tw-mb-5">
+              <div id="product-image" class="tw-w-70">
+                <img id="image-thumb" src="">
+              </div>
+              <div id="product-info" class="tw-w-160 tw-py-2">
+                <h1 id="product-name" class="tw-font-bold tw-leading-9 tw-break-normal tw-mb-1 tw-text-xl"></h1>
+                <p id="product-valuation" class="tw-mb-1 tw-text-2xl"><strong></strong></p>
+                <div id="product-amount" class="tw-flex">
+                  <button id="les" class="tw-p-2 tw-border tw-border-black"><img src="{{asset('./img/icon/less.svg')}}" alt=""></button>
+                  <div id="mount" class="tw-px-2 tw-py-1 tw-text-2xl tw-bg-zinc-200"><span>01</span></div>
+                  <button id="more" class="tw-p-2 tw-border tw-border-black"><img src="{{asset('./img/icon/moreB.svg')}}" alt=""></button>
+                </div>
+              </div>
+              <button id="remove-product" class='tw-flex tw-justify-center tw-items-center'>
+                <img src="{{asset('./img/icon/trash.svg')}}" alt="" class="tw-h-9">
+              </button>
+            </div>
+          </li> -->
+        </ul>
       </div>
       <div id="line" class=""></div>
       <div id="next-cart" class="tw-p-4 tw-bg-white tw-w-76 tw-relative tw-bottom-16">
@@ -29,10 +33,10 @@
           <span class="tw-text-2xl"><strong> {{ settings.currency }} <span data-cart="price">{{ cart.price }}</span></strong></span>
         </div>
         <button class="tw-w-full tw-border tw-text-2xl tw-border-black tw-py-4 tw-mb-4">
-          <p>CONTINUAR COMPRANDO</p>
+          <a href="{{ links.home }}">CONTINUAR COMPRANDO</a>
         </button>
         <button class="tw-w-full tw-border tw-text-2xl tw-border-black tw-bg-black tw-text-white  tw-py-4 ">
-          <p>FINALIZAR COMPRA</p>
+          <a href="{{ links.cart }}" >FINALIZAR COMPRA</a>
         </button>
       </div>
   </section>

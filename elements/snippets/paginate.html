@@ -1,14 +1,14 @@
-<div class="row">
-    <div class="col-sm-6 search-counter">
-        {{ paginate.counter('Encontramos {:count} produto(s) em {:pages} p&aacute;gina(s)') }}
-    </div>
+<nav id="pagination" aria-label="Page navigation" class="tw-w-full tw-flex tw-flex-col xl:tw-flex-row tw-gap-5 tw-items-center tw-justify-end">
+    <p class="search-counter tw-text-xl tw-text-center">
+        {{ paginate.counter('Mostrando <strong>{:count} produto(s)</strong> em <strong>{:pages} p&aacute;gina(s)</strong>') }}
+    </p>
     
     <div class="col-sm-6 paginate-links">
     {% if paginate.params.pageCount > 1 %}
-        {{ paginate.first('<<', {'class': 'page-first page-link'}) }}
+        {{ paginate.first('PRIMEIRA', {'class': 'page-first page-link'}) }}
      
         {% if paginate.hasPrev %}
-            {{ paginate.prev('<', {'class': 'page-prev page-link'}) }}
+            {{ paginate.prev('...', {'class': 'page-prev page-link'}) }}
         {% endif %}
      
         {{ paginate.numbers({
@@ -19,10 +19,10 @@
         }) }}
      
         {% if paginate.hasNext %}
-            {{ paginate.next('>', {'class': 'page-next page-link'}) }}
+            {{ paginate.next('...', {'class': 'page-next page-link'}) }}
         {% endif %}
      
-        {{ paginate.last('>>', {'class': 'page-last page-link'}) }}
+        {{ paginate.last('ÚLTIMA', {'class': 'page-last page-link'}) }}
     {% endif %}
     </div>
-</div>
+</nav>

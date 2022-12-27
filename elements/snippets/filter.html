@@ -1,0 +1,168 @@
+<aside id="filter_page" class="filter  lg:tw-mt-10">
+    <form class="filter__form tw-mt-10" method="get">
+        
+        {% if settings.compare %}
+        <a href="/loja/comparador.php?loja={{store.id}}&IdDep={{category.id}}" class="button-compare">{{
+            Translation("comparar_produto") }}</a>
+        {% endif %}
+
+        <input type="hidden" name="loja" value="{{ store.id }}">
+        {% if search.word %}
+        <input name="palavra_busca" type="hidden" value="{{ search.word }}">
+        {% endif %}
+
+        {% if category.id %}
+        <input type="hidden" name="categoria" value="{{ category.id }}">
+        {% endif %}
+
+
+        <!-- CATEGORIA -->
+        {% if filter_options.categories %}
+        <section class="filter__block filter__block--categories border-b">
+            <div class=" tw-w-full tw-flex tw-justify-between tw-items-center tw-cursor-pointer tw-uppercase" @click="search1 = ! search1">
+                <h1 class="tw-font-bold">Categorias</h1>
+                <i x-show="!search1" class="fa-solid fa-plus text-black "></i>
+                <i x-show="search1" class="fa-solid fa-minus text-black "></i>
+            </div>
+            <nav id="navgation-search" class="tw tw-bg-white lg:tw-init tw-my-4" x-show="search1">
+                <ul class="filter__list tw-text-slate-600 tw-text-xl tw-uppercase  lg:tw-flex lg:tw-flex-col lg:text-white lg:justify-start lg:items-start">
+                    {% for category in filter_options.categories %}
+                    {% set category_applied = category.key in filtered_options.categories ? true : false %}
+    
+                    <li class="filter__item">
+                        <input id="{{ category.key }}" class="filter__input filter__input--category tw-hidden" type="checkbox"
+                            name="categories[]" value="{{ category.key|convert_encoding('UTF-8', 'ISO-8859-1') }}"
+                            {{ category_applied ? 'checked' }}>
+                        <label class="filter__label" for="{{ category.key }}">
+                            <span class="filter__name filter__name--category"> {{ category.key }}</span>
+                        </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </section>
+        {% endif %}
+        <!-- CATEGORIA -->
+
+                <!-- TAMANHO -->
+                {% if filter_options.properties %}
+                {% for properties in filter_options.properties %}
+                    {% for prop in properties|slice(1, 2) %}
+                    <section class="filter__block filter__block--properties">
+                        <div class="tw-w-full tw-uppercase tw-cursor-pointer tw-flex tw-justify-between " @click="search4 = ! search4">
+                            <h1 class="tw-font-bold">{{ prop.key }}</h1>
+                            <i x-show="!search2" class="fa-solid fa-plus text-black "></i>
+                            <i x-show="search2" class="fa-solid fa-minus text-black "></i>
+                        </div>
+                        <nav id="navgation-search" class="tw tw-bg-white lg:tw-init tw-my-4" x-show="search4">
+                            <ul class="filter__list tw-text-slate-600 tw-text-2xl tw-uppercase lg:tw-flex lg:tw-flex-col lg:text-white lg:justify-start lg:items-start">
+                                {% for item in prop.values %}
+                                {% set filter_prop = prop.key ~'||'~ item.key %}
+                                {% if item.entity == 'variants' %}  
+                                  {% set prop_applied = filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') in filtered_options.variant ? true : false %}
+                                {% else %}
+                                  {% set prop_applied = filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') in filtered_options.propertie ? true : false %}
+                                {% endif %}
+                                    <li class="filter__item">
+                                        <input id="{{ item.key }}" class="filter__input filter__input--propertie " type="checkbox"
+                                            name="{{item.entity}}[]" value="{{ filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') }}"
+                                            {{ prop_applied ? 'checked'}}>
+                                        <label class="filter__label" for="{{ item.key }}">
+                                            <span class="filter__name filter__name--propertie"> {{ item.key }}</span>
+                                            <span class="filter__text filter__text--count">({{ item.doc_count }})</span>
+                                        </label>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </section>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+            <!-- TAMANHO -->
+
+        <!-- COLORS -->
+        {% if filter_options.properties %}
+            {% for properties in filter_options.properties %}
+                {% for prop in properties|slice(0, 1) %}
+                <section class="filter__block filter__block--properties">
+                    <div class="tw-w-full tw-uppercase tw-cursor-pointer tw-flex tw-justify-between " @click="search3 = ! search3">
+                        <h1 class="tw-font-bold">{{ prop.key }}</h1>
+                        <i x-show="!search2" class="fa-solid fa-plus text-black "></i>
+                        <i x-show="search2" class="fa-solid fa-minus text-black "></i>
+                    </div>
+                    <nav id="navgation-search" class="tw tw-bg-white lg:tw-init tw-my-4" x-show="search3">
+                        <ul class="filter__list tw-grid tw-grid-cols-3 lg:tw-grid-cols-7 tw-gap-5">
+                            {% for item in prop.values %}
+    
+                            {% set filter_prop = prop.key ~'||'~ item.key %}
+                            {% if item.entity == 'variants' %}  
+                              {% set prop_applied = filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') in filtered_options.variant ? true : false %}
+                            {% else %}
+                              {% set prop_applied = filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') in filtered_options.propertie ? true : false %}
+                            {% endif %}
+    
+                            <li class="filter__item tw-cursor-pointer focus:tw-border-black tw-w-12 tw-h-12">
+                                <div class="tw-p-0.5  tw-flex tw-justify-center focus:tw-border-black">
+                                    <input id="{{ item.key }}" class="filter__input filter__input--propertie tw-hidden tw-hidden" type="checkbox"
+                                    name="{{item.entity}}[]" value="{{ filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') }}"
+                                    {{ prop_applied ? 'checked'}}>
+                                    <label class="filter__label tw-w-12 tw-h-12 tw-cursor-pointer border" for="{{ item.key }}">
+                                        <img src="{{ item.image_color_secure }}" class="tw-inline tw-w-12 tw-h-12 border">
+                                    </label>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </section>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+        <!-- COLORS -->
+              <!-- PREÇO -->
+              {% if filter_options.prices %}
+              <section class="filter__block filter__block--prices border-b">
+                  <div class="tw-w-full tw-flex tw-justify-between tw-cursor-pointer " @click="search2 = ! search2">
+                      <h1 class="tw-font-bold">FAIXA DE PREÇO</h1>
+                      <i x-show="!search2" class="fa-solid fa-plus text-black "></i>
+                      <i x-show="search2" class="fa-solid fa-minus text-black "></i>
+                  </div>
+                  <nav id="navgation-search" class="tw tw-bg-white lg:tw-init tw-my-4" x-show="search2">
+                      <ul class="filter__list tw-text-slate-600 tw-text-xl tw-uppercase  lg:tw-flex lg:tw-flex-col lg:text-white lg:justify-start lg:items-start">
+                          {% for price in filter_options.prices.buckets %}
+                          {% set price_applied = false %}
+          
+                          <li class="filter__item">
+                              {% for price_apply in filtered_options.price %}
+                              {% set price_applied = price.from and price.to in price_apply ? true : false %}
+                              {% endfor %}
+          
+                              <input id="{{ price.from }}-{{ price.to }}" class="filter__input filter__input--price "
+                                  type="checkbox" name="prices[]" value="{{ price.from }},{{ price.to }}"
+                                  {{ price_applied ? 'checked' }}>
+                              <label class="filter__label" for="{{ price.from }}-{{ price.to }}">
+                                  <span class="filter__name filter__name--price">
+                                      {% if loop.index == 1 %}
+                                      Até {{ settings.currency }} {{ price.to|currency }}
+                                      {% elseif loop.index == filter_options.prices.buckets|length  %}
+                                      Acima de {{ settings.currency }} {{ price.from|currency }}
+                                      {% else %}
+                                      De {{ settings.currency }} {{ price.from|currency }} à {{ settings.currency }}
+                                      {{ price.to|currency }}
+                                      {% endif %}
+                                  </span>
+                              </label>
+                          </li>
+                          {% endfor %}
+                      </ul>
+                  </nav>
+              </section>
+              {% endif %}
+              <!-- PREÇO -->
+      
+
+              
+        <button type="submit" class="filter__button tw-w-full tw-border tw-text-2xl tw-border-black tw-bg-white tw-text-black tw-uppercase tw-py-4 tw-mt-8 ">{{ Translation('filtrar') }}</button>
+    </form>
+</aside>

@@ -1,6 +1,6 @@
 <header>
-    <nav id="menu" class="lg:limited" >
-        <div class="tw-container tw-w-full tw-h-16 tw-absolute tw-top-0 tw-bg-black/80 tw-px-4 tw-flex tw-items-center md:tw-h-28 tw-z-50" x-data="{open: false,bag: false,dropdow:false,dropmenu:false,search:false}">
+    <nav id="menu" class="tw-w-full tw-bg-black/80" >
+        <div class="lg:limited tw-container tw-w-full tw-h-16 tw-absolute tw-top-0 tw-bg-black/80 tw-px-4 tw-flex tw-items-center md:tw-h-28 tw-z-50" x-data="{open: false,bag: false,dropdow:false,dropmenu:false,search:false}">
             <button id="menu-icon-mobile" @click="open = ! open">
                 <img src="{{asset('./img/icon/menu.svg')}}" class="tw-h-6 lg:tw-hidden" alt="">
               </button>
@@ -32,12 +32,12 @@
                               </a> 
                           </li>
                       {%endfor%} 
-                  <li class="tw-absolute  lg:tw-right-16 m34:tw-right-0" @click="dropmenu = ! dropmenu">
+                  <!-- <li class="tw-absolute  lg:tw-right-16 m34:tw-right-0" @click="dropmenu = ! dropmenu">
                       <button id="drop-menu" class="tw-z-50  tw-text-white tw-text-xl tw-flex tw-gap-2 m11:tw-hidden ">
                       <p>MAIS CATEGORIAS</p>
                       <i class="fa-solid fa-chevron-down"></i>
                       </button>
-                  </li> 
+                  </li>  -->
                   </ul>
                   
               </nav>  

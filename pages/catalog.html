@@ -1,64 +1,23 @@
-<div class="catalog-header">
-    
-    {% if banner.title %}
-        <div class="banner banner-title ">
-            {{ banner.title }}
-        </div>
-    {% endif %}
-    
-    <h1 class="catalog-name">{{ category.name }}</h1>
-    
-    {% if products|length > 0 %}
-    
-        {% if breadcrumb %}
-            {% element 'snippets/breadcrumb' %}
-        {% endif %}
-        
-        <div class="system-filter">
-            {% if settings.compare %}
-                <a href="/loja/comparador.php?loja={{store.id}}&IdDep={{category.id}}" class="button-compare">{{ Translation("comparar_produto") }}</a>
-            {% endif %}
-            
-            {% element 'snippets/filter' {
-                'brands': category.brands
-            } %}
-        </div>
-    
-        <div class="pagination">
-            {% element 'snippets/paginate' %}
-        </div>
-    {% endif %} 
-    
-    {% if category.small_description %}
-    <div class="category-description">
-        {{ category.small_description }}
-    </div>
-    {% endif %}    
+<div x-data="{filter : false}"></div>
+<div id="button-filter" class="tw-fixed" @click="filter = ! filter">
+  <img src="{{asset('/img/icon/filterWhite.svg')}}" alt="" class="tw-h-12">
 </div>
-
-{% if products|length > 0 %}
-
-    <div class="catalog-content row">
-        {% element 'showcase-catalog' {
-            "products": products
+<section id="dropdown-filter"  class="tw-fixed tw-w-96  tw-flex tw-flex-col tw-items-end " x-data="{search1 : false,search2 : false,search3 : false,search4 : false,}" x-show="filter">
+  {% element 'snippets/filter_mobile'%}
+</section>
+<div class="tw-w-full tw-h-16 lg:tw-h-24"></div>
+{% element 'snippets/payment_benefits_pruducts' %}
+<section id="search" class="tw-flex tw-px-4 tw-border-r-4" x-data="{search1 : false,search2 : false,search3 : false,search4 : false}">
+    <section id="categories" class="tw-hidden  lg:tw-block tw-border-r-2 tw-text-2xl tw-w-3/12 tw-py-10">
+      {% element 'snippets/filter' %}
+    </section>
+    <section id="prod-filter" class="tw-mb-16 tw-w-full ">
+      <h1 class="tw-font-bold tw-text-4xl tw-ml-4 tw-my-7 tw-hidden 10:tw-block">{{ category.name }}</h1>
+      {% element 'showcase-catalog-filter' {
+        "products": products
         } %}
-    </div>
-
-    <div class="catalog-footer pagination">
+        <div class="tw-mt-10">
         {% element 'snippets/paginate' %}
-    </div>
-
-{% else %}
-    
-    <div class="catalog-empty">
-        <img src="{{ asset('img/catalog-empty.svg') }}" alt="Sem produtos" width="150" height="150">
-        <p>{{ Translation('nenhum_resultado') }}</p>
-    </div>
-
-{% endif %}
-
-{% if banner.bottom %}
-    <div class="banner banner-bottom ">
-        {{ banner.bottom }}
-    </div>
-{% endif %}
+        </div>
+    </section>
+</section>

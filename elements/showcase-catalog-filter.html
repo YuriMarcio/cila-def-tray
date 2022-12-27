@@ -1,0 +1,15 @@
+{% if products|length > 0 %}
+   <div class=" lg:limited tw-w-full tw-bg-white tw-relative" itemscope itemtype="https://schema.org/SomeProducts">
+      <h2>
+         <strong>{{ showcaseTitle }}</strong>
+      </h2>
+      <div id="grid-cate" class="tw-w-full tw-grid tw-grid-cols-3" itemscope itemtype="https://schema.org/SomeProducts">
+          {% for product in products %}
+            {% set ranking = product.ranking %}
+            <div class="tw-min-w-242 lg:tw-min-w-0 lg:tw-max-w-305" itemscope itemtype="https://schema.org/SomeProducts">
+                {% element 'snippets/product-primary' {"product": product} %}
+            </div>
+          {% endfor %}
+      </div>
+   </div>
+{% endif %}
