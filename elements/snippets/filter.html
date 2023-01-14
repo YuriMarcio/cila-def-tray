@@ -19,7 +19,7 @@
         <!-- CATEGORIA -->
         {% if filter_options.categories %}
         <section class="filter__block filter__block--categories border-b">
-            <div class=" tw-w-full tw-flex tw-justify-between tw-items-center tw-cursor-pointer tw-uppercase" @click="search1 = ! search1">
+            <div class="tw-w-full tw-flex tw-justify-between tw-items-center tw-cursor-pointer tw-uppercase" @click="search1 = ! search1">
                 <h1 class="tw-font-bold">Categorias</h1>
                 <i x-show="!search1" class="fa-solid fa-plus text-black "></i>
                 <i x-show="search1" class="fa-solid fa-minus text-black "></i>
@@ -104,8 +104,7 @@
     
                             <li class="filter__item tw-cursor-pointer focus:tw-border-black tw-w-12 tw-h-12">
                                 <div class="tw-p-0.5  tw-flex tw-justify-center focus:tw-border-black">
-                                    <input id="{{ item.key }}" class="filter__input filter__input--propertie tw-hidden tw-hidden" type="checkbox"
-                                    name="{{item.entity}}[]" value="{{ filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') }}"
+                                    <input id="{{ item.key }}" class="filter__input filter__input--propertie tw-hidden tw-hidden" type="checkbox" name="{{item.entity}}[]" value="{{ filter_prop|convert_encoding('UTF-8', 'ISO-8859-1') }}"
                                     {{ prop_applied ? 'checked'}}>
                                     <label class="filter__label tw-w-12 tw-h-12 tw-cursor-pointer border" for="{{ item.key }}">
                                         <img src="{{ item.image_color_secure }}" class="tw-inline tw-w-12 tw-h-12 border">

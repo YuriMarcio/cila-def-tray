@@ -1,5 +1,4 @@
-<main> 
-  <div class="tw-w-full tw-h-14 lg:tw-h-24"></div>
+<div class="tw-w-full tw-h-14 lg:tw-h-24"></div>
   {% element 'snippets/payment_benefits_pruducts' %}
   <div id="parc" class=" lg:tw-w-full lg:tw-flex lg:tw-p-3 lg:tw-gap-x-44 ">
     <section id="item-product" class="tw-w-full tw-flex tw-flex-col lg:tw-flex-row tw-justify-center tw-items-center lg:tw-justify-start lg:tw-items-start lg:tw-mr-5 ">
@@ -15,7 +14,7 @@
           </div>
         {% endif %}
 
-      <!--PRODUCT MOBILE -->
+      <!-- PRODUCT MOBILE -->
     </section>
     <section id="detail-product" class=" tw-mt-3 lg:tw-w-6/12 md:tw-ml-4 tw-shrink ">
       <div class="col-md-6">
@@ -33,45 +32,47 @@
         {% endif %}
         {% endfor %}
 
-        <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
-            
-            {% if settings.cache_infopreco %}
-            <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
-                <div class="pricing">
-                    Carregando...
-                </div>
+
+        <div class="prod-id tw-hidden" data-product-id="{{ product.id }}"></div>
+        {% if settings.cache_infopreco %}
+        <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
+            <div class="pricing">
+                Carregando...
             </div>
-            {% else %}
-                {{ productHelper.pricing() }}
-            {% endif %}
-            <div class="tw-uppercase">{{ productHelper.variants() }}</div>
-            {{ productHelper.kit() }}
-            {{ productHelper.gifts() }}
-            {{ product.additional_information }}
-            <div>
-              {% element 'snippets/addcart' %}
-            </div>
-            {% if not product.upon_request and product.available %}
-                {{ productHelper.wishlist() }}
-            {% endif %}
-            <div id="cep" class="tw-relative tw-mb-12">
-              <h4 class="tw-text-slate-600 tw-mb-2">CALCULAR FRETE</h4>
-              {{ productHelper.shipping() }}
-            </div>
-            {% if product.additional_message %}
-            <div class="additional-message">
-                {{ product.additional_message }}
-            </div>
-            {% endif %}
-            
-        </form>
-        
+        </div>
+        {% else %}
+            {{ productHelper.pricing() }}
+        {% endif %}
+        {{ productHelper.kit() }}
+        {{ productHelper.gifts() }}
+        {{ product.additional_information }}
+        {% if product.available %}
+        {% if product.stock > 0 %}
+        <div class="tw-uppercase">{{ productHelper.variants() }}</div>
+        <div>
+          <!-- {% element 'snippets/adicionar_produto' %} -->
+            <button class="buy-prod tw-w-full tw-py-4 tw-bg-black tw-flex tw-justify-center tw-items-center tw-text-white tw-text-2xl tw-gap-4 " type="submit"> <img src="{{ asset('/img/icon/bagwhite.svg') }}" alt=""> ADICIONAR À SACOLA</button>
+        </div>
+        {% if not product.upon_request and product.available %}
+            {{ productHelper.wishlist() }}
+        {% endif %}
+        <div id="cep" class="tw-relative tw-mb-12">
+          <h4 class="tw-text-slate-600 tw-mb-2">CALCULAR FRETE</h4>
+          {{ productHelper.shipping() }}
+        </div>
+        {% if product.additional_message %}
+        <div class="additional-message">
+            {{ product.additional_message }}
+        </div>
+        {% endif %}
         <p class="product-details">
             {% if settings.show_product_stock %}
                 <span>Estoque: <b>{{ product.stock }}</b></span>
             {% endif %}
             {{ productHelper.icons() }}
         </p>
+        {%endif%}
+        {%endif%}
 
         {% if settings.social_position == 1 %}
           <div class="product-social">
@@ -118,3 +119,4 @@
     } %}
   {%endif%}
   </section>
+  <script src="{{ asset('/js/jquery.js') }}"></script>

@@ -1,10 +1,11 @@
-<div x-data="{filter : false}"></div>
-<div id="button-filter" class="tw-fixed" @click="filter = ! filter">
+<div x-data="{filter : false}">
+<div id="button-filter" class="tw-block lg:tw-invisible tw-fixed" @click="filter = ! filter">
   <img src="{{asset('/img/icon/filterWhite.svg')}}" alt="" class="tw-h-12">
 </div>
 <section id="dropdown-filter"  class="tw-fixed tw-w-96  tw-flex tw-flex-col tw-items-end " x-data="{search1 : false,search2 : false,search3 : false,search4 : false,}" x-show="filter">
   {% element 'snippets/filter_mobile'%}
 </section>
+</div>
 <div class="tw-w-full tw-h-16 lg:tw-h-24"></div>
 {% element 'snippets/payment_benefits_pruducts' %}
 <section id="search" class="tw-flex tw-px-4 tw-border-r-4" x-data="{search1 : false,search2 : false,search3 : false,search4 : false}">

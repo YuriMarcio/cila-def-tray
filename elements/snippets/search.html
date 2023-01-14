@@ -1,8 +1,11 @@
-    <input class="tw-w-full tw-bg-transparent tw-relative tw-p-2 tw-border-b-2 tw-text-white tw-outline-none" placeholder="O QUE VOCÊ PROCURA ?" @click.outside="search = false">
-    <button class="tw-relative tw-right-10">
-      <img src="{{asset('./img/icon/searchicon-menu.svg')}}" alt="" class="tw-min-w-20 tw-min-h-20">
-    </button>
-    <button class="tw-text-white tw-relative tw-left-20 tw-flex tw-justify-center tw-items-center tw-gap-2" @click="search = false">
-      <i class="fa-solid fa-x tw-text-2xl"></i>
-      <p class="tw-text-2xl">FECHAR</p>
-    </button>
+    <form action="{{ links.search_order_name }}" method="get" >
+      <input class="tw-w-full tw-bg-transparent tw-relative tw-p-2 tw-border-b-2 tw-text-white tw-outline-none" placeholder="O QUE VOCÊ PROCURA ?" @click.outside="search = false">
+      <button class="tw-relative tw-right-10">
+        <img src="{{asset('./img/icon/searchicon-menu.svg')}}" alt="" class="tw-min-w-20 tw-min-h-20">
+      </button>
+      <button class="tw-text-white tw-relative tw-left-20 tw-flex tw-justify-center tw-items-center tw-gap-2" @click="search = false">
+        <i class="fa-solid fa-x tw-text-2xl"></i>
+        <p class="tw-text-2xl">FECHAR</p>
+      </button>
+    </form>
+    

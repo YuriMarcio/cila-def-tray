@@ -2,9 +2,11 @@
   {% if product.stock > 0 %}
     <div class="addcart" id="variants">
       {% if product.has_variation %}
-        <a href="{{ product.link }}"><input type="button" class="addCart" value="Comprar"/></a>
+        <a href="{{ product.link }}" class="tw-w-full tw-border tw-border-black tw-bg-black tw-text-white tw-py-4 tw-flex tw-justify-center tw-items-center tw-gap-2 tw-mb-8 tw-decoration-inherit ">
+          <input type="button" class="addCart" value="ADICIONAR À SACOLA "/>
+        </a>
       {% else %}
-        <input type="button" class="addCart" value="Comprar" onclick="addCart({{ product.id }})" />
+        <input type="button" class="addCart" value="Comprar" onclick="addCart({{ product.id }}'')" />
       {% endif %}
     </div>
   {% else %}

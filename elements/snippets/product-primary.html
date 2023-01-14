@@ -1,17 +1,20 @@
 <div itemid="30" class="product{{ product.has_other_prices ? ' has-other-prices' }}tw-min-w-242  lg:tw-min-w-0 lg:tw-max-w-305 tw-cursor-pointer tw-bg-white tw-mt-16 tw-mb-4 tw-ml-4">
     <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
-        <div class="product-image">
+        <div class="product-image" class="tw-relative">
             {% if product.images %}
-                {% if utils.is_mobile %}
-                    <img itemprop="image" class="tw-bg-white" src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
+            <div class="control">
+                    <img itemprop="image" class="lazy pc0 tw-bg-white " src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
+                    {% if settings.image_list and product.images[1] and (not utils.is_mobile) %}
+                        <img itemprop="image" class="lazy pc0 tw-bg-white " src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
+                    {% else %}
+                        <img itemprop="image"  data-original="{{ product.images[1].full }}" class="lazy pc1 tw-absolute  " 
+                        src="{{ product.images[1].full }}" alt="{{ product.name }}" title="{{ product.name }}">
+                    {% endif %}
                 {% else %}
-                    <img itemprop="image"  data-original="{{ product.images[0].full }}" class="lazy" 
-                    src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
+                    <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
                 {% endif %}
-            {% else %}
-                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
-            {% endif %}
-            {{ productHelper.banner() }}
+            </div>
+
                              
         </div>   
         <section id="description" class="tw-text-black  tw-text-2xl tw-pt-7">

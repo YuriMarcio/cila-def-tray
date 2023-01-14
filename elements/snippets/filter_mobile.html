@@ -1,6 +1,6 @@
-<button id="close" class="tw-relative tw-right-80  -tw-top-5 tw-p-4 tw-bg-white tw-z-50" @click="filter = ! filter"  >
+<button id="close" class="tw-relative tw-right-80   tw-p-4 tw-bg-white tw-z-50" @click="filter = ! filter"  >
     <img src="{{asset('./img/icon/close.svg')}}" alt="" >
   </button>
-<div id="filter-mobi" x-show="filter" class=" tw-h-auto tw-w-76 tw-relative tw-bottom-16 tw-text-2xl tw-pl-4 tw-bg-white tw-z-50 tw-pt-8 tw-overflow-auto ">
+<div id="filter-mobi"  class=" tw-h-auto tw-w-76 tw-relative  tw-text-2xl tw-pl-4 tw-bg-white tw-z-50 tw-overflow-auto ">
     {% element 'snippets/filter' %}
 </div>

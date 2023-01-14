@@ -45,17 +45,18 @@
     <!--{% element 'snippets/messages' %} -->
     
 
-    <div class="application">
+    <div class="application ">
+
+        
         {% if pages.current == 'home' %}
             {% element 'header_home' %}
             {{ content_for_layout }}
         {% else %}
             {% element 'header' %}
 
-
-            b
             {{ content_for_layout }}
         {% endif %}
+
 
         {% element 'footer' %}
 
@@ -85,12 +86,15 @@
     {{ store.chat }}
 
     <!-- theme scripts-->
+    <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/theme.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/d951250582.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/theme.min.js') }}"></script>
-    <script src="{{asset('js/index.js')}}"></script>
-    <script src="{{asset('js/carrinho.js')}}"></script>
+    <script type="text/javascript"  src="{{asset('/js/index.js')}}"></script>
+    <script type="module" src="{{asset('/js/carrinho.js')}}"></script>
+    <script type="text/javascript"  src="{{asset('/js/cart.js')}}"></script>
+    <script type="text/javascript"  src="{{asset('/js/instagram.js')}}"></script>
 </body>
 </html>
 {% endspaceless %}

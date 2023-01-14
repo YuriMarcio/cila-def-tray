@@ -1,6 +1,6 @@
 <header>
-    <nav id="menu" class="tw-w-full tw-bg-black/80" >
-        <div class="lg:limited tw-container tw-w-full tw-h-16 tw-absolute tw-top-0 tw-bg-black/80 tw-px-4 tw-flex tw-items-center md:tw-h-28 tw-z-50" x-data="{open: false,bag: false,dropdow:false,dropmenu:false,search:false}">
+    <nav id="menu" class="tw-w-full tw-fixed tw-z-50 tw-bg-black/80" >
+        <div class="lg:limited tw-container tw-w-full tw-max-w-1920 tw-h-16 tw-absolute tw-top-0 tw-bg-black/80 tw-px-4 tw-flex tw-items-center md:tw-h-28 tw-z-50" x-data="{open: false,bag: false,dropdow:false,dropmenu:false,search:false}">
             <button id="menu-icon-mobile" @click="open = ! open">
                 <img src="{{asset('./img/icon/menu.svg')}}" class="tw-h-6 lg:tw-hidden" alt="">
               </button>
@@ -86,7 +86,7 @@
               </section>
               <!-- DROPDOW CARRINHO DE COMPRAS MOBILE -->
               <!-- SEARCH -->
-              <section id="search" class="tw-w-9/12  tw-absolute tw-left-56 tw-top-9 tw-bg-transparent tw-flex " x-show="search">
+              <section id="search" class="tw-w-52 tw-left-56 tw-top-9 tw-bg-transparent tw-flex " x-show="search">
                   {% element 'snippets/search' %}
               </section>
               <!-- SEARCH --> 
