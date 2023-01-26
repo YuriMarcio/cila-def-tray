@@ -77,21 +77,8 @@ var swiper = new Swiper(".mySwiper", {
   function app(){
     type:"less"
   }
-  $(function(){
-    
-    $(".swiper-slide-active").hover(
-			function(){
-				//Ao posicionar o cursor sobre a div
-        // $('.swiper-slide-active > .variants > form').addClass('tw-hidden');
-        $('.swiper-slide-active > form').show();
-			},
-			function(){
-				//Ao remover o cursor da div
-        // $('.variants > form').hide();
-				// $('#description').show();
-			}
-		);
 
+  $(document).ready(function(){
     
-  })
-     
+  });
+    

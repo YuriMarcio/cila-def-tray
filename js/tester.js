@@ -23,7 +23,6 @@ var cart = {
                 i++;
             }
         }
-        console.log(select);
         return 500;
     },
     stockAlert: function(e){
@@ -76,7 +75,6 @@ var cart = {
             var variant = jQuery(this).data('variants').length ? jQuery(this).find('input').attr('data-variant') : 0;
             var validaApi = jQuery(this).data('api-cart');
 
-            console.log(variant);
             cart.addToCart(id, quant, variant, href, validaApi);
         });
     },
@@ -103,10 +101,11 @@ var cart = {
             dataType: 'json',
             data: data,
             success: function(response) {
-                alert('deu ceerto');
+                // exibe o carrinho lateral ou faz a ação desejada pelo parceiro
+                // Exemplo: cart.showCart();
             },
             error: function( ){
-                
+                window.location.href = href;
             }    
         });
 

@@ -1,3 +1,5 @@
+{% set smartPages = ['catalog', 'search'] %}
+{% if filters and pages.current in smartPages %}
 <aside id="filter_page" class="filter  lg:tw-mt-10">
     <form class="filter__form tw-mt-10" method="get">
         
@@ -165,3 +167,4 @@
         <button type="submit" class="filter__button tw-w-full tw-border tw-text-2xl tw-border-black tw-bg-white tw-text-black tw-uppercase tw-py-4 tw-mt-8 ">{{ Translation('filtrar') }}</button>
     </form>
 </aside>
+{%endif%}
