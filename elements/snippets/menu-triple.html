@@ -1,7 +1,7 @@
     <!-- menu triplo -->
     <ul id="triple" class="tw-flex tw-items-end ">
       <li class="tw-p-5" @click="search = ! search">
-        <a href="#"><img src="{{asset('/img/icon/searchicon.svg')}}" alt="" class="tw-hidden lg:tw-block tw-h-9 md:tw-h-11"></a>
+        <img src="{{asset('/img/icon/searchicon.svg')}}" alt="" class="tw-hidden lg:tw-block tw-h-9 md:tw-h-11">
       </li>
       <li class="tw-p-5">
         <a href="#">
@@ -9,7 +9,7 @@
         </a>
       </li>
       <li class="tw-p-5 tw-relative">
-          <img src="{{asset('/img/icon/bagicon.svg')}}" alt="" class="tw-h-9 md:tw-h-11" @click="bag = !open">
+          <img src="{{asset('/img/icon/bagicon.svg')}}" alt="" class="tw-h-9 md:tw-h-11" @click="bag = !bag">
           <div id="bol" class="tw-hidden tw-w-2 tw-h-2 tw-bg-emerald-300 tw-rounded-lg tw-absolute tw-bottom-12 tw-left-11 w-brightness-90"></div>
       </li>
     </ul>

@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
     <!-- ESCRIPTS -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 
     <!-- tray analytics -->
     {{ tray.analytics }}
@@ -43,9 +44,9 @@
 <body class="tw-overflow-x-hidden tw-bg-white ">
     {{ googleTagManager.top(pages.current, tagManagerData) }}
     <!--{% element 'snippets/messages' %} -->
-    
 
     <div class="application ">
+       
 
         
         {% if pages.current == 'home' %}

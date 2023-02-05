@@ -7,7 +7,7 @@
           {% for product in products %}
             {% set ranking = product.ranking %}
             <div class="tw-min-w-242 lg:tw-min-w-0 lg:tw-max-w-305" itemscope itemtype="https://schema.org/SomeProducts">
-                {% element 'snippets/product-primary' {"product": product} %}
+                {% element 'snippets/product' {"product": product} %}
             </div>
           {% endfor %}
       </div>

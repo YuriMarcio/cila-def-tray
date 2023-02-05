@@ -1,0 +1,24 @@
+<div x-data="{filter : false}">
+    <div id="button-filter" class="tw-block lg:tw-invisible tw-fixed" @click="filter = ! filter">
+      <img src="{{asset('/img/icon/filterWhite.svg')}}" alt="" class="tw-h-12">
+    </div>
+    <section id="dropdown-filter"  class="tw-fixed tw-w-96  tw-flex tw-flex-col tw-items-end " x-data="{search1 : false,search2 : false,search3 : false,search4 : false,}" x-show="filter">
+      {% element 'snippets/filter_mobile'%}
+    </section>
+    </div>
+    <div class="tw-w-full tw-h-16 lg:tw-h-24"></div>
+    {% element 'snippets/payment_benefits_pruducts' %}
+    <section id="search" class="tw-flex tw-px-4 tw-border-r-4" x-data="{search1 : false,search2 : false,search3 : false,search4 : false}">
+        <section id="categories" class="tw-hidden  lg:tw-block tw-border-r-2 tw-text-2xl tw-w-3/12 tw-py-10">
+          {% element 'snippets/filter' %}
+        </section>
+        <section id="prod-filter" class="tw-mb-16 tw-w-full ">
+          <h1 class="tw-font-bold tw-text-4xl tw-ml-4 tw-my-7 tw-hidden 10:tw-block">{{ category.name }}</h1>
+          {% element 'showcase-catalog-filter' {
+            "products": products
+            } %}
+            <div class="tw-mt-10">
+            {% element 'snippets/paginate' %}
+            </div>
+        </section>
+    </section>

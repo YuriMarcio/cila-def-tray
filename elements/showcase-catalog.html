@@ -7,7 +7,8 @@
         <div class="swiper-wrapper">
           {% for product in products %}
             <div class="swiper-slide ">
-                {% element 'snippets/product-primary' {"product": product} %}
+                {% element 'snippets/product' {"product": product} %}
+                {{ productHelper.variants() }}
             </div>
           {% endfor %}
         </div>
