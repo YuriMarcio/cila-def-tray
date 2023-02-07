@@ -1,0 +1,57 @@
+<div  class="product{{ product.has_other_prices ? ' has-other-prices' }}tw-min-w-242 productImgPrincipal  lg:tw-min-w-0 lg:tw-max-w-305 tw-cursor-pointer tw-bg-white tw-mt-16 tw-mb-4 tw-ml-4" itemid="{{product.id}}">
+    <a class="link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
+        <div class="product-image" class="tw-relative">
+            {% if product.images %}
+            <div class="control">
+                    <img itemprop="image" class="lazy pc0 tw-bg-white " src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
+                {% else %}
+                    <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
+                {% endif %}
+            </div>             
+        </div>   
+        <section id="description" data-id="{{ product.id }}" class="tw-text-black  tw-text-2xl tw-pt-7">
+            {% if settings.discount %}
+            {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
+                {% if porcentagemDesconto < 100 %}
+                <span class="discount tw-text-xl "> {{ porcentagemDesconto|number_format }}% de desconto </span>
+            {% endif %}  
+            {% endif %} 
+            <div class="product-name text-secondary-theme mt-3" itemprop="name">{{ product.name }}</div>
+            <meta itemprop="productID" content="{{ product.id }}"/>
+            <meta itemprop="sku" content="{{ product.id }}"/>
+            {% if product.ean %}
+                <meta itemprop="gtin14" content="{{ product.ean }}">
+            {% endif %}
+            
+            {% if product.description_small %}
+                <meta itemprop="description" content="{{ product.description_small }}">
+            {% endif %}
+
+            
+            {% if product.brand %}
+            <span itemprop="brand" itemscope itemtype="http://schema.org/Organization">
+                <meta itemprop="name" content="{{ product.brand }}"/>
+            </span>
+            {% endif %} 
+
+
+            {% for discount in product.ProgressiveDiscounts %}
+            {% if discount.tag %}
+                <div class="product-discount-recursive-tag">{{discount.tag}}</div>
+                <div class="product-discount-recursive-desc">{{discount.description}}</div>
+            {% endif %}
+        {% endfor %} 
+        
+            {% if settings.cache_infopreco %}
+            <div data-module="pricing" data-snippet="snippets/product-payment" data-product-id="{{ product.id }}">
+                <div class="pricing">
+                    Carregando...
+                </div>
+            </div>
+            {% else %}
+                {% element 'snippets/product-payment' {"product": product } %}
+            {% endif %}
+       </section>
+    </a>
+    {% element 'snippets/add-cart' {"product": product} %} 
+</div>

@@ -1,4 +1,4 @@
-<div  class="product{{ product.has_other_prices ? ' has-other-prices' }}tw-min-w-242  lg:tw-min-w-0 lg:tw-max-w-305 tw-cursor-pointer tw-bg-white tw-mt-16 tw-mb-4 tw-ml-4" itemid="{{product.id}}">
+<div  class="product{{ product.has_other_prices ? ' has-other-prices' }}tw-min-w-242 productImgPrincipal  lg:tw-min-w-0 lg:tw-max-w-305 tw-cursor-pointer tw-bg-white tw-mt-16 tw-mb-4 tw-ml-4" itemid="{{product.id}}">
     <a class="link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
         <div class="product-image" class="tw-relative">
             {% if product.images %}
@@ -7,7 +7,7 @@
                     {% if settings.image_list and product.images[1] and (not utils.is_mobile) %}
                         <img itemprop="image" class="lazy pc0 tw-bg-white " src="{{ product.images[0].full }}" alt="{{ product.name }}" title="{{ product.name }}">
                     {% else %}
-                        <img itemprop="image"  data-original="{{ product.images[1].full }}" class="lazy pc1 tw-absolute tw-z-20 tw-w-full tw-h-full " 
+                        <img itemprop="image"  data-original="{{ product.images[1].full }}" class="lazy pc1 tw-absolute tw-w-full tw-h-full " 
                         src="{{ product.images[1].full }}" alt="{{ product.name }}" title="{{ product.name }}">
                     {% endif %}
                 {% else %}
@@ -15,7 +15,7 @@
                 {% endif %}
             </div>             
         </div>   
-        <section id="description" class="tw-text-black  tw-text-2xl tw-pt-7">
+        <section id="description" data-id="{{ product.id }}" class="tw-text-black  tw-text-2xl tw-pt-7">
             {% if settings.discount %}
             {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
                 {% if porcentagemDesconto < 100 %}

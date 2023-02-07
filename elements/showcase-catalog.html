@@ -6,7 +6,7 @@
       <div class="swiper mySwiper ">
         <div class="swiper-wrapper">
           {% for product in products %}
-            <div class="swiper-slide ">
+            <div class="swiper-slide swiperIndividual " idprodcarrousel="{{product.id}}">
                 {% element 'snippets/product' {"product": product} %}
                 {{ productHelper.variants() }}
             </div>

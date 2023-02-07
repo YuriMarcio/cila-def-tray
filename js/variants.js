@@ -1,3 +1,4 @@
 $(document).ready(function(){
-    console.log($('.testevar').attr('data-test'));
+    console.log('olá mundl');
+    alert('pinto');
 })

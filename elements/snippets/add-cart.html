@@ -7,15 +7,23 @@
         {% set variants = [] %}
         {% set variantName = '' %}
         {% set variantSecondName = '' %}
+        {% set variantCor = '' %}
+        {% set idvar = [] %}
+        <!-- {% for v in idvar %}
+            i
+        {%endfor%} -->
 
         {% for variant in productVar %}
-
+            
+            {% set idvar = idvar|merge([variant.id]) %}
             {% if loop.index == 1 %}
-
+            
                 {% if variant.Sku[1] %}
                     {% set variantSecondName = variant.Sku[1].type %}
+                    
                 {% endif %}
-                {% set variantName = variant.Sku[0].type %}
+                    {% set variantName = variant.Sku[0].type %}
+                    {% set variantCor = variant.Sku[0].image %}
 
             {% endif %}
 
@@ -27,9 +35,10 @@
 
             {% elseif variant.Sku[1] %}
 
-                {% set variants = variants|merge([{ "price": {"price": variant.price_offer != 0 ? variant.price_offer : variant.price, "payment": variant.payment_option }, "id": variant.id, "stock": stock, "option": variant.Sku[0].value|convert_encoding('UTF-8', 'ISO-8859-1'), "option2": variant.Sku[1].value|convert_encoding('UTF-8', 'ISO-8859-1') }]) %}
+                {% set variants = variants|merge([{ "price": {"price": variant.price_offer != 0 ? variant.price_offer : variant.price, "payment": variant.payment_option }, "id": variant.id, "stock": stock, "option": variant.Sku[0].value|convert_encoding('UTF-8', 'ISO-8859-1'),"option2": variant.Sku[1].value|convert_encoding('UTF-8', 'ISO-8859-1') }]) %}
 
                 {% set valueSecond = variant.Sku[1].value %}
+
                 {% if not (valueSecond in listVariantsSecond) %}
                     {% set listVariantsSecond = listVariantsSecond|merge([valueSecond]) %}
                 {% endif %}
@@ -47,33 +56,37 @@
             {% endif %}
 
         {% endfor %}
-
-        <div class="testevar" data-test="{{ productVar }}"></div>
-        <form class="list-variants" data-id="{{ product.id }}"  data-variants='{{ variants ? variants|json_encode : "" }}' data-api-cart="1">
+        <form class="list-variants tw-hidden" data-id="{{ product.id }}"  data-variants='{{ variants ? variants|json_encode : "" }}' data-api-cart="1">
+            <input type="text" class="attrvari tw-hidden" data-id="{{ product.id }}" valuevar="" >
             <div class="select">
                 {% if variantName %}
-                <label>
-                    {% for value in listVariants %}
-                        <label>
-                            <input type="checkbox" class="check" name="first" value="{{ value }}" data-price="{{ price }}">
-                        </label>
-                    {% endfor %}
-                </label>
-            {% endif %}
-            {% if variantSecondName %}
-            <label>
-                {% for value in listVariantsSecond %}
-                    <label>
-                        <input type="checkbox" class="check" name="second" value="{{ value }}" data-price="{{ price }}">
-                        <span class="size-check"> {{ value }} </span>
+                    <label class="tw-flex tw-w-10/12 tw-justify-center tw-items-center tw-gap-4 ">
+                        {% for value in listVariants %}
+                            <div class="check tw-cursor-pointer" data-variant-color="" name="first" value="{{ value }}" data-price="{{ price }}">
+                                {%if variantCor %}
+                                  <img src="{{ variantCor}} " alt="" data-id="{{ product.id }}" class="tw-w-full tw-h-full">
+                                {%endif%}
+                            </div>
+                        {% endfor %}
                     </label>
-                {% endfor %}
-            </label>
-            {% endif %}
+                {% endif %}
+                {% if variantSecondName %}
+                    <label class="tw-flex tw-w-10/12 tw-justify-center tw-items-center" style="gap:40px">
+                        {% for value in listVariantsSecond %}
+                         {% set variId = '' %}
+                            {% for variant in productVar if variant.Sku[1].value == value %}
+                                {% set variId = variant.id %}
+                                    <div class="check tw-cursor-pointer tw-bg-white" name="second" value="{{ value }}" data-id="{{ product.id }}" data-variants="{{ variId }}" data-price="{{ price }}">
+                                    <span class=""> {{ value }} </span>
+                                    </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </label>
+                {% endif %}
             </div>            
             <div class="flex add-cart">
                 <input required type="number" value="1" class="tw-hidden">
-                <button class="action">Adicionar ao carrinho</button>
+                <button class="action " data-id="{{ product.id }}">Adicionar ao carrinho</button>
             </div>
         </form>
 

@@ -1,5 +1,5 @@
-    <form method="GET" class=" tw-w-76 tw-h-32 tw-relative tw-flex tw-bg-white tw-z-50 tw-shadow-lg tw-p-4">
-      <input  style="background-color:#EBEBEB ;" class="tw-p-2 tw-w-full tw-h-20 tw-text-2xl  tw-text-gray-900 tw-italic tw-caret-slate-400 tw-bg-gray-900 " placeholder="O QUE VOCÊ PROCURA?" >
+    <form role="form" action="{{ links.search }}"  data-search="suggestion" method="GET" class=" tw-w-76 tw-h-32 tw-relative tw-flex tw-bg-white tw-z-50 tw-shadow-lg tw-p-4">
+      <input value="" type="text" data-input="suggestion" placeholder="{{ Translation('buscar') }}" name="palavra_busca" tabindex="1" data-tray-tst="busca_palavra" required placeholder="O QUE VOCÊ PROCURA ?" style="background-color:#EBEBEB ;" class="tw-p-2 tw-w-full tw-h-20 tw-text-2xl  tw-text-gray-900 tw-italic tw-caret-slate-400 tw-bg-gray-900 " placeholder="O QUE VOCÊ PROCURA?" >
       <span class="tw-relative -tw-ml-11 tw-flex tw-items-center tw-bottom-2 tw-right-3 tw-pl-2  ">
         <button type="submit" class="tw-p-1 focus:tw-outline-none focus:tw-shadow-outline">
           <a href="#"><img src="{{asset('./img/icon/searblack.svg')}}" alt="" class="tw-h-8"></a>

@@ -315,7 +315,7 @@ button#close {
     top: 4rem;
     transition: 2s;
     opacity: 0;
-    z-index: 64;
+    z-index: 32;
 }
 .pc1:hover{
     opacity: 1;
@@ -365,16 +365,55 @@ input.inpval {
     font-weight: 700;
     color: #666;
     position: absolute;
-    bottom: 24%;
+    bottom: 5.7rem;
     width: 97%;
     height: 19%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
     z-index: 864;
     background-color: #ffffffab;
+}
+
+.check {
+    border: 2px solid #656565;
+    color: #656565;
+    max-width: 32px;
+    max-height: 32px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.check:focus{
+    border: 2px solid #000;
+    color: #000;
+}
+
+button.action {
+    width: 100%;
+    height: 48px;
+    color: white;
+    background: black;
+    font-size: 14px;
+    margin-top: -19px;
+}
+
+form.list-variants {
+    margin-top: none;
+}
+
+button.action {
+    width: 100%;
+    height: 48px;
+    color: white;
+    background: black;
+    font-size: 14px;
+    margin-top: -21px;
+    z-index: 64;
 }
 
 /* pop up */

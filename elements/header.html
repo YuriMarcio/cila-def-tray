@@ -4,7 +4,7 @@
             <button id="menu-icon-mobile" @click="open = ! open">
                 <img src="{{asset('./img/icon/menu.svg')}}" class="tw-h-6 lg:tw-hidden" alt="">
               </button>
-              <div id="logo" class="tw-ml-4">
+              <div id="logo" class="tw-ml-4" x-show="!search">
                   <a href="{{ links.home }}">
                       <img src="{{asset('./img/logo/logo_cila.svg')}}" alt="" class="lg:tw-hidden tw-h-10">
                   </a>
@@ -19,6 +19,7 @@
               > <!--colocar o hidden aqui -->
                       {% element 'snippets/menu-mobile' %}
               </section>
+
               <!-- NAVIGATION MOBILE -->
               <!-- NAVIGATION DESKTOP -->
               <nav id="navgation-desktop" class="tw-hidden lg:tw-block tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-ml-4 tw-overflow-hidden tw-relative tw-red-800 " x-show="!search">
@@ -81,12 +82,12 @@
               <!-- -->
               <section id="dropdown-bag"  class="tw-absolute tw-w-96 tw-top-0 tw-right-0 tw-flex tw-flex-col tw-items-end " x-show="bag" @click.outside="bag = false"
               x-transition:enter="tw-duration-300"
-              x-transition:leave-end="-tw-duration-300"  >
+              x-transition:leave-end="-tw-duration-300" x-collapse >
                   {% element 'snippets/cart'%}
               </section>
               <!-- DROPDOW CARRINHO DE COMPRAS MOBILE -->
               <!-- SEARCH -->
-              <section id="search" class="tw-w-52 tw-left-56 tw-top-9 tw-bg-transparent tw-flex " x-show="search">
+              <section id="search" class="tw-w-full tw-flex tw-justify-center tw-items-center tw-bg-transparent  " x-show="search">
                   {% element 'snippets/search' %}
               </section>
               <!-- SEARCH --> 
