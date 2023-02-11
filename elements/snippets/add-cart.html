@@ -57,7 +57,7 @@
 
         {% endfor %}
         <form class="list-variants tw-hidden" data-id="{{ product.id }}"  data-variants='{{ variants ? variants|json_encode : "" }}' data-api-cart="1">
-            <input type="text" class="attrvari tw-hidden" data-id="{{ product.id }}" valuevar="" >
+            <!-- <input type="text" class="attrvari tw-hidden" data-id="{{ product.id }}" valuevar="" > -->
             <div class="select">
                 {% if variantName %}
                     <label class="tw-flex tw-w-10/12 tw-justify-center tw-items-center tw-gap-4 ">
@@ -76,8 +76,9 @@
                          {% set variId = '' %}
                             {% for variant in productVar if variant.Sku[1].value == value %}
                                 {% set variId = variant.id %}
-                                    <div class="check tw-cursor-pointer tw-bg-white" name="second" value="{{ value }}" data-id="{{ product.id }}" data-variants="{{ variId }}" data-price="{{ price }}">
-                                    <span class=""> {{ value }} </span>
+                                    <div class="check tw-cursor-pointer tw-bg-white" name="second" value="{{ variId }}" data-id="{{ product.id }}" data-variants="{{ variId }}" data-price="{{ price }}">
+                                    <span class=""></span>
+                                    <span class=""> {{ value }} {{ variId }} </span>
                                     </div>
                             {% endfor %}
                         {% endfor %}

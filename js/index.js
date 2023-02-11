@@ -78,6 +78,12 @@ var swiper = new Swiper(".mySwiper", {
     type:"less"
   }
   $(document).ready(function(){
-    
+    $('li.tripleSelect').on('mouseenter',function(){
+      var triplename = $(this).attr('triple-name');
+      $('.selectBol[triple-name*="'+triplename+'"]').show();
+    })
+    $('li.tripleSelect').on('mouseleave',function(){
+      $('.selectBol').hide();  
+    });
   })
     

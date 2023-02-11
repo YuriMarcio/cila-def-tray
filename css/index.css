@@ -20,6 +20,9 @@
 section#dropdown-bag {
     width: 100%;
 }
+a.menu-dec{
+ text-decoration: none;   
+}
 
 /* PRONTOS */
 
@@ -45,6 +48,11 @@ html .application {
     gap: 5px;
 } */
 
+
+p.menuOption:hover{
+    border-bottom: 1px solid #fff;   
+}
+
 #showcase-relative{
     display: flex;
     flex-direction: column !important;
@@ -60,7 +68,16 @@ html .application {
     line-height: 2rem; /* 32px */  
     font-weight: 700; 
 }
-
+.selectBol {
+    width: 5px;
+    height: 5px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px #ffffff;
+}
+li.tripleSelect{
+    cursor: pointer;
+}
 /* BREADCRUMB */
 .page-product .breadcrumb .icon-breadcrumb:before {
     font-size: 0.5rem;
