@@ -25,15 +25,15 @@
                 <i x-show="search1" class="fa-solid fa-minus text-black "></i>
             </div>
             <nav id="navgation-search" class="tw tw-bg-white lg:tw-init tw-my-4" x-show="search1">
-                <ul class="filter__list tw-text-slate-600 tw-text-xl tw-uppercase  lg:tw-flex lg:tw-flex-col lg:text-white lg:justify-start lg:items-start">
+                <ul class="filter__list tw-text-slate-600 tw-text-xl tw-uppercase  lg:tw-flex lg:tw-flex-col lg:text-white lg:justify-start lg:items-start lg:tw-gap-4">
                     {% for category in filter_options.categories %}
                     {% set category_applied = category.key in filtered_options.categories ? true : false %}
     
-                    <li class="filter__item">
+                    <li class="filter__item ">
                         <input id="{{ category.key }}" class="filter__input filter__input--category tw-hidden" type="checkbox"
                             name="categories[]" value="{{ category.key|convert_encoding('UTF-8', 'ISO-8859-1') }}"
                             {{ category_applied ? 'checked' }}>
-                        <label class="filter__label" for="{{ category.key }}">
+                        <label class="filter__label tw-cursor-pointer focus:tw-font-extrabold" for="{{ category.key }}">
                             <span class="filter__name filter__name--category"> {{ category.key }}</span>
                         </label>
                     </li>

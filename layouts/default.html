@@ -32,9 +32,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 
     <!-- ESCRIPTS -->
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script  src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 
+    <!-- SCRIPT DEFER -->
+    <script defer type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+    <script defer type="text/javascript"  src="{{ asset('js/theme.min.js') }}"></script>
+    <script defer type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
+    <script defer src="https://kit.fontawesome.com/d951250582.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script defer type="text/javascript" defer  src="{{asset('/js/index.js')}}"></script>
+    <script defer type="module" src="{{asset('/js/carrinho.js')}}"></script>
+    <script defer type="text/javascript"  src="{{asset('/js/cart.js')}}"></script>
     <!-- tray analytics -->
     {{ tray.analytics }}
 
@@ -87,15 +96,7 @@
     {{ store.chat }}
 
     <!-- theme scripts-->
-    <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/theme.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
-    <script src="https://kit.fontawesome.com/d951250582.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript"  src="{{asset('/js/index.js')}}"></script>
-    <script type="module" src="{{asset('/js/carrinho.js')}}"></script>
-    <script type="text/javascript"  src="{{asset('/js/cart.js')}}"></script>
-    <script type="text/javascript"  src="{{asset('/js/instagram.js')}}"></script>
+   
 </body>
 </html>
 {% endspaceless %}

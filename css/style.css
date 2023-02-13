@@ -226,6 +226,26 @@ header nav .nav-text:hover a{
     border: none;
 }
 
+header nav ul#carousel {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: top;
+    height: 530px !important;
+    align-items: center;
+}
+ul#carousel::-webkit-scrollbar {
+    visibility: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: top;
+    height: 530px;
+    align-items: center;
+}
+
 
 /* pagination */
 .page-item{

@@ -24,6 +24,7 @@ $(document).ready(function(){
             prodinfo()
             
     }).fail(function( jqXHR, status, errorThrown ){
+        $('#bol').hide();
         prodinfo()
     })
     };
@@ -140,50 +141,50 @@ $(document).ready(function(){
     }
 
     // vitrini da loja 
-    $(document).on('click', '.check' , function(){
-        var idvariante = $(this).attr('data-variants');
-        
-        // $("input.attrvari").empty();
-        console.log($(".datavariants").append(idvariante))
-    });
+
 
     function vitri(){
+        
         $(document).on('mouseenter','.swiperIndividual', function(){
             var idItemHover = $(this).attr('idprodcarrousel');
             // var attrcrt = $('.swiperIndividual[idprodcarrousel*="'+idItemHover+'"]').
             $('#description[data-id*="'+idItemHover+'"]').hide();
             $('form.list-variants[data-id*="'+idItemHover+'"]').show();
-
-            $(this).on('click','button.action[data-id*="'+idItemHover+'"]', function(){
-                event.preventDefault();
-
-                var valorInput = $('input.attrvari[data-id*="'+idItemHover+'"]').attr("valuevar");
-                console.log(valorInput);
-                
-                // const data = {
-                //     Cart: {
-                //         session_id : dataSession,
-                //         product_id : idItemHover,
-                //         variant_id : valorInput,
-                //         quantity   : "1",
-                //     }
-                //     };
-                //       $.ajax({
-                //           method: "POST",
-                //           url: "/web_api/cart/",
-                //           contentType: "application/json; charset=utf-8",
-                //           data: '{"Cart":{"session_id":"'+dataSession+'","product_id":"'+idItemHover+'","quantity":"1","variant_id":"'+valorInput+'"}}'
-                //       }).done(function( response, textStatus, jqXHRH ) {
-                //           $('ul#cart-prod').empty();
-                //           $('ul#cart-prod').empty();
-                //           getprod();
-                //           $('#dropdown-bag').show();
-                //       }).fail(function( jqXHR, status, errorThrown ){
-                //           var response = $.parseJSON( jqXHR.responseText );
-                //           alert('Nao temos esse produto momentaneamente no estoque ');
-                //       }); 
-            });
         });
+
+        $(document).on('click', '.check' , function(){
+            var idvariante = $(this).attr('data-variants');
+            $("input.attrvari").attr("valuevar", idvariante);
+        });
+
+        $(document).on('click','button.action', function(){
+            event.preventDefault();
+            var valorInput = $('input.attrvari').attr("valuevar");
+            var idproductbuton = $(this).attr('data-id');
+            const data = {
+                Cart: {
+                    session_id : dataSession,
+                    product_id : idproductbuton,
+                    variant_id : valorInput,
+                    quantity   : "1",
+                }
+                };
+                  $.ajax({
+                      method: "POST",
+                      url: "/web_api/cart/",
+                      contentType: "application/json; charset=utf-8",
+                      data: '{"Cart":{"session_id":"'+dataSession+'","product_id":"'+idproductbuton+'","quantity":"1","variant_id":"'+valorInput+'"}}'
+                  }).done(function( response, textStatus, jqXHRH ) {
+                      $('ul#cart-prod').empty();
+                      $('ul#cart-prod').empty();
+                      getprod();
+                      $('#dropdown-bag').show();
+                  }).fail(function( jqXHR, status, errorThrown ){
+                      var response = $.parseJSON( jqXHR.responseText );
+                      alert('Nao temos esse produto momentaneamente no estoque ');
+                  }); 
+        });
+        
         
         $(document).on('mouseleave', '.swiperIndividual', function(){
             var idItemHover = $(this).attr('idprodcarrousel');

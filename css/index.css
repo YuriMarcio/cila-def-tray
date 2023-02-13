@@ -152,6 +152,9 @@ ul#carousel {
     overflow: auto;
     align-items: center;
 }
+ul#carousel::-webkit-scrollbar{
+    width: 0 ! important;
+}
 /* BUTÃO COMPRAR */
 button#button-buy{
     width: 100%;
@@ -205,6 +208,30 @@ button#button-buy{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.smof {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 8rem;
+    background: linear-gradient(359deg, #FFFFFF 10%, rgba(255, 255, 255, 0) 100%);
+}
+.page-product .product-gallery #foto_a {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 270px;
+    border: none;
+    height: 51rem;
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+}
+
+.selected{
+    font-weight: 700;
 }
 
 .page-product .additional-message, .page-product .additional-information {
@@ -345,6 +372,7 @@ button.action {
     color: white;
     background: black;
     font-size: 14px;
+    position: relative;
 }
 
 form.list-variants{
@@ -443,6 +471,44 @@ button.action {
 .swiper-slide-active{
     width: 100%;
     height: 100%;
+}
+.smof {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 8rem;
+    background: linear-gradient(359deg, #FFFFFF 10%, rgba(255, 255, 255, 0) 100%);
+}
+@media (max-width: 899px)
+{
+    .smof {
+        display: none;
+    }
+    #foto_p img {
+        max-width: 521px;
+        height: 533px !important;
+        width: 100%;
+        object-fit: cover;
+    }
+    .page-product .product-gallery #foto_a{
+        height: 153px;
+    }
+    .pc1{
+        display: none;
+    } 
+    #grid-cate{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 744px)
+{
+    .pc1{
+        display: none;
+    } 
+    #grid-cate{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 700px)
