@@ -1,5 +1,5 @@
 {% if product.available and (product.stock > 0 or settings.without_stock_sale) and not product.upon_request %}
-    <div class="variants">
+    <div class="variants" style="position: relative;top: -6rem;">
 
         {% set productVar = product.Variants|length ? product.Variants :  product.variants %}
         {% set listVariants = [] %}

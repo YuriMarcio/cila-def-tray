@@ -97,5 +97,9 @@ $(document).ready(function(){
     $(document).click(function(){ 
         $(".selected").removeClass("selected");
     });
+    
+    $(document).click(".selectchek",function(){ 
+      $('span.text_check').css('font-weight','700');
+    });
   })
     

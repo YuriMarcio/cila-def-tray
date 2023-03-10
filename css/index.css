@@ -319,6 +319,7 @@ button#close {
 .filter__form{
     margin-top: 20px;
 }
+
 /* paginate */
 .page-catalog .btns-paginator, .page-catalog .page-link, .page-search .btns-paginator, .page-search .page-link {
     border: 2px solid #aaa;
@@ -350,13 +351,14 @@ button#close {
 #categories{
     border-right: 1px solid #EBEBEB;
 }
-/* tem que ser feito pelo jquery */
+.control{
+    position: relative;
+}
 .pc1 {
     width: 100%;
     height: 100%;
-    max-width: 277px !important;
-    max-height: 418.04px !important;
-    top: 4rem;
+    position: absolute;
+    left: 0;
     transition: 2s;
     opacity: 0;
     z-index: 32;
@@ -364,6 +366,45 @@ button#close {
 .pc1:hover{
     opacity: 1;
     transition: 1s;
+}
+
+.product .product-image:before {
+    content: "";
+    display: inline-block;
+    height: 0 !important;
+    vertical-align: middle;
+    width: 1%;
+}
+.product {
+    background: #fff;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 369px;
+}
+.product .product-image img {
+    display: inline-block;
+    width: 100%;
+    max-height: 100%; 
+    max-width: 100%;
+    vertical-align: middle;
+}
+.product .product-name {
+    color: #3d4445;
+    display: block;
+    height: 37px;
+    margin-bottom: 0 !important;
+    overflow: hidden;
+    font-family: "Roboto",sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+}
+section#description {
+    padding-top: 18px;
 }
 
 button.action {
@@ -395,6 +436,15 @@ form.list-variants{
     align-items: center;
     font-size: 12px;
 }
+/* PRODUCT */
+.product .product-image {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    font-size: 0;
+    height: 100% !important;
+    margin-bottom: 15px;
+    text-align: center;
+}
 
 input.inpval {
     width: 32px;
@@ -409,10 +459,9 @@ input.inpval {
     font-size: 14px;
     font-weight: 700;
     color: #666;
-    position: absolute;
+    position: relative;
     bottom: 5.7rem;
-    width: 97%;
-    height: 19%;
+    padding: 8px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -420,6 +469,10 @@ input.inpval {
     gap: 14px;
     z-index: 864;
     background-color: #ffffffab;
+}
+.add-cart {
+    position: relative !important;
+    top: -3.6rem;
 }
 
 .check {
@@ -439,12 +492,9 @@ input.inpval {
 }
 
 button.action {
-    width: 100%;
-    height: 48px;
     color: white;
     background: black;
     font-size: 14px;
-    margin-top: -19px;
 }
 
 form.list-variants {
@@ -459,6 +509,13 @@ button.action {
     font-size: 14px;
     margin-top: -21px;
     z-index: 64;
+}
+
+.swiper-slide{
+    
+    display: flex !important;
+    justify-content: center !important;
+    align-items: top !important;
 }
 
 /* pop up */

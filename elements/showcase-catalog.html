@@ -3,10 +3,10 @@
       <h2>
          <strong>{{ showcaseTitle }}</strong>
       </h2>
-      <div class="swiper mySwiper ">
+      <div class="swiper mySwiper prod"style="height: 100%;max-height: 651px;">
         <div class="swiper-wrapper">
           {% for product in products %}
-            <div class="swiper-slide swiperIndividual " idprodcarrousel="{{product.id}}">
+            <div class="swiper-slide swiperIndividual tw-w-305" style="margin: none;" idprodcarrousel="{{product.id}}">
                 {% element 'snippets/product' {"product": product} %}
                 {{ productHelper.variants() }}
             </div>

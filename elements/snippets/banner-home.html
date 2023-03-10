@@ -1,11 +1,20 @@
 <section id="banner" class="tw-w-full tw-h-screen tw-bg-cover tw-bg-center">
     <div class="swiper BannerSwiper tw-h-full">
       <div class="swiper-wrapper tw-h-full tw-h-full">
-        {% for slide in banners.home.slides %}
+        {% if utils.is_mobile %}
+          {% for slide in banners.extra1.slides %}
             <div class="swiper-slide">
             <a href="{{ slide.link }}"><img src="{{ slide.image }}" alt="{{ slide.label }}" class="tw-w-full tw-h-full tw-object-cover"></a>
             </div>
-        {% endfor %}
+          {% endfor %}
+        {% else %}
+          {% for slide in banners.home.slides %}
+            <div class="swiper-slide">
+            <a href="{{ slide.link }}"><img src="{{ slide.image }}" alt="{{ slide.label }}" class="tw-w-full tw-h-full tw-object-cover"></a>
+            </div>
+          {% endfor %}
+        {%endif%}
+
       </div>
     </div>
 </section>

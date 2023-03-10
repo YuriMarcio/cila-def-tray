@@ -33,8 +33,8 @@
                         <input id="{{ category.key }}" class="filter__input filter__input--category tw-hidden" type="checkbox"
                             name="categories[]" value="{{ category.key|convert_encoding('UTF-8', 'ISO-8859-1') }}"
                             {{ category_applied ? 'checked' }}>
-                        <label class="filter__label tw-cursor-pointer focus:tw-font-extrabold" for="{{ category.key }}">
-                            <span class="filter__name filter__name--category"> {{ category.key }}</span>
+                        <label class="filter__label tw-cursor-pointer selectchek" for="{{ category.key }}">
+                            <span class="filter__name filter__name--category text_check"> {{ category.key }}</span>
                         </label>
                     </li>
                     {% endfor %}

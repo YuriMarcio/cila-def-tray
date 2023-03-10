@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  prefix: 'tw-',
+prefix: 'tw-',
   content: [
     './pages/**/*.{html,js}',
     './elements/**/*.{html,js}',
@@ -34,7 +34,7 @@ module.exports = {
         '521': '32.563 em',
         '413': '25.813 em',
         '738': '46.125 em',
-        '305': '305px', //aleterado
+        '305': '305px', 
         '1920' : '1920px'
       },
       minWidth: {
